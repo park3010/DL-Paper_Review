@@ -3,15 +3,15 @@
 <br>
 
 이 repository는 deep learning을 공부하기 위해 만들었습니다. 
-<br>[[딥러닝 논문 가이드]딥러닝 전체](https://ffighting.net/deep-learning-paper-review/deep-learning-paper-guide/deep-learning-paper-guide/)를 바탕으로 논문 리뷰 및 코드 구현 내용을 정리했습니다.  
-
-![Image](https://github.com/user-attachments/assets/bee1dd28-9b3e-4f5e-83e0-8db413c22fdc)
+<br>Computer Vision : [딥러닝을 위한 논문 가이드](https://kmhana.tistory.com/3)를 바탕으로 논문 리뷰 및 코드 구현 내용을 정리했습니다.  
+<br>NLP : [graykode/nlp-tutorial](https://github.com/graykode/nlp-tutorial)를 바탕으로 논문 리뷰 및 코드 구현 내용을 정리했습니다.  
 
 <br>
 
-## Vision Model
+## Computer Vision
 
 <br>
 
 - [AlexNet(2012)](Vision/AlexNet)
   - Paper: <https://proceedings.neurips.cc/paper_files/paper/2012/file/c399862d3b9d6b76c8436e924a68c45b-Paper.pdf>
+  - 한 줄 요약 : 
