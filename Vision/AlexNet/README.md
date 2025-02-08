@@ -49,8 +49,9 @@
 <br>
   
 - CNN의 특성과 상대적으로 효율적인 구조에도 불구하고 여전히 매우 큰 고해상도 이미지에 대한 계산 비용이 높음
-  - GPU의 2D convolution 연산에 최적화되어 있어 CNN 훈련 가능하고 ImageNet은 심각한 overfitting 없이 모델이 훈련할 수 있도록 충분히 라벨링되어 있음
+- 이에 대해 GPU는 2D convolution 연산에 최적화되어 있어 CNN 훈련 가능하고 ImageNet은 심각한 overfitting 없이 모델이 훈련할 수 있도록 충분히 라벨링되어 있음
 <br>
+
 ```
 - 본 논문 성과:
   - 매우 큰 CNN 모델을 학습하여 ILSVRC-2010 및 ILSVRC-2012 대회에서 가장 우수한 성적 달성
