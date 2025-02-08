@@ -92,4 +92,12 @@
 
 <br>
 
-- 입력 x에 대한 출력 f는 `f(x) = tanh(x)` or `f(x) = (1 + e^-x)^-x` 임
+- 입력 x에 대한 출력 f는 `f(x) = tanh(x)` or `$$f(x) = (1 + e^-x)^-x$$` 임
+  - 경사 하강법을 이용한 훈련시간면에서 위 방법은 `f(x) = max(0,x)` 보다 느림 => ReLU Nonlinearity
+  - Deep convolutional neural networks(DCNNs)에서 `ReLU`는 동등한 `tahn`보다 학습 속도가 빠름
+  <br>
+   ![image](https://github.com/user-attachments/assets/66dd3a80-0f20-4274-8456-733d543d56d3)<br>
+   ```
+   특정 4계층에 convolutional network에 
+   
+    
