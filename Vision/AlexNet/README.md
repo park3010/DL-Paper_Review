@@ -41,5 +41,22 @@
 - Convolution neural network(CNN)sms 깊이(depth)와 폭(breadth)를 다양하게 조절 가능하고 이미지 특성에 대해 대부분 올바르게 예측 가능함
 - 비슷한 layer 크기를 가지는 표준 FeedForward neural networks와 CNNs를 비교했을 때
   - CNN -> 더 적은 수의 connections와 parameter 수로 훈련 가능하고 성능 또한 우수함<br>
+  
+- CNN의 특성과 상대적으로 효율적인 구조에도 불구하고 여전히 매우 큰 고해상도 이미지에 대한 계산 비용이 높음
+  - GPU의 2D convolution 연산에 최적화되어 있어 CNN 훈련 가능하고 ImageNet은 심각한 overfitting 없이 모델이 훈련할 수 있도록 충분히 라벨링되어 있음<br>
+
+- 본 논문 성과:
+  - 매우 큰 CNN 모델을 학습하여 ILSVRC-2010 및 ILSVRC-2012 대회에서 가장 우수한 성적 달성
+  - 2D convolution 연산에 최적화된 GPU를 구현 및 공개함
+  - 성능 개선 및 학습 시간 단축시키는 새로운 방법 포함
+  - 네트워크 크기로 인해 발생할 수 있는 overfitting 문제 방지하기 위한 기법 소개
+  - (중요) 본 논문의 network는 5개의 convolution layer와 3개의 fully-connected layer로 구성
  
-- 
+<br>
+
+## Dataset
+
+<br>
+
+
+<br>
