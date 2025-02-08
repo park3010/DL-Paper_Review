@@ -32,4 +32,6 @@
   - Example) Single recognition task, MNIST digit-recognition(숫자 인식) 작업의 error는 0.3% 미만으로 사람이 하는 것에 근접함
 - 최근에 와서 수백 만 개의 라벨링된 데이터셋 수집 가능해짐 -> 수십만 개의 fully-segmented image로 구성된 ImageNet과 22,000개의 카테고리와 1,500만 개 이상의 라벨을 가지는 고해상도 이미지로 구성된 ImageNet이 포함됨
   - fully-segmented image : 이미지의 유사한 영역 또는 부분(segment)를 동일 클레스 레이블로 그룹화한 이미지
-    ![image](https://github.com/user-attachments/assets/58bd6c5e-156f-4cfd-abbd-1b9e79511995)
+    ![image](https://github.com/user-attachments/assets/58bd6c5e-156f-4cfd-abbd-1b9e79511995)<br>
+
+- d
