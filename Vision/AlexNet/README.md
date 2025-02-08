@@ -96,8 +96,6 @@
   - 경사 하강법을 이용한 훈련시간면에서 위 방법은 `f(x) = max(0,x)` 보다 느림 => ReLU Nonlinearity
   - Deep convolutional neural networks(DCNNs)에서 `ReLU`는 동등한 `tahn`보다 학습 속도가 빠름
   <br>
-   ![image](https://github.com/user-attachments/assets/66dd3a80-0f20-4274-8456-733d543d56d3)<br>
-   ```
-   특정 4계층에 convolutional network에 
-   
+  ![image](https://github.com/user-attachments/assets/66dd3a80-0f20-4274-8456-733d543d56d3 "4개의 CNN계층을 가진 신경망에서 ReLU(실선)를 이용한 경우가 tanh(점선)을 이용하였을 때 보다 매우 빠르게 25%의 에러율에 도달함")<br>
+  
     
