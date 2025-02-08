@@ -34,4 +34,12 @@
   - fully-segmented image : 이미지의 유사한 영역 또는 부분(segment)를 동일 클레스 레이블로 그룹화한 이미지
     ![image](https://github.com/user-attachments/assets/58bd6c5e-156f-4cfd-abbd-1b9e79511995)<br>
 
-- d
+- 수천 개의 object가 있는 수백 만 개의 이미지 학습 위해선 학습 용량 큰 모델 필요함
+- but, object recognition 작업의 복잡성은 ImageNet 같은 큰 데이터셋으로도 해결 하기 어려움
+  -> 본 논문의 모델은 우리가 가지고 있지 않은 데이터를 보완하기 위해서 많은 사전 지식을 갖춰야 함<br>
+
+- Convolution neural network(CNN)sms 깊이(depth)와 폭(breadth)를 다양하게 조절 가능하고 이미지 특성에 대해 대부분 올바르게 예측 가능함
+- 비슷한 layer 크기를 가지는 표준 FeedForward neural networks와 CNNs를 비교했을 때
+  - CNN -> 더 적은 수의 connections와 parameter 수로 훈련 가능하고 성능 또한 우수함<br>
+ 
+- 
