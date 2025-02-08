@@ -67,7 +67,7 @@
 
 <br>
 
-- ImageNet은 다양한 해상도의 이미지를 포함하지만 신경망에 입력 사이즈를 맞추기 위해 256×256 크기의 이미지로 다운 샘플링 작업함
+- ImageNet은 다양한 해상도의 이미지를 포함하지만 신경망에 입력 사이즈를 맞추기 위해 256×256 크기의 이미지로 다운 샘플링 작업함<br>
   ![image](https://github.com/user-attachments/assets/e83dbfd1-9d81-4901-a0a6-f255bfdeb759)<br>
   -> 본 연구에선 train set의 평균 빼는 것말곤 별도의 전처리 작업은 진행하지 않음
 
@@ -77,7 +77,7 @@
 
 <br>
 
-본 논문의 신경망은 아래와 같음
+본 논문의 신경망은 아래와 같음<br>
 ![image](https://github.com/user-attachments/assets/41f28cdb-7537-47f7-9d7f-c9d62e2cc63a)<br>
 ```
   network 아키텍처의 특징
@@ -94,7 +94,7 @@
 
 - 입력 x에 대한 출력 f는 `f(x) = tanh(x)` or `$$f(x) = (1 + e^-x)^-x$$` 임
   - 경사 하강법을 이용한 훈련시간면에서 위 방법은 `f(x) = max(0,x)` 보다 느림 => ReLU Nonlinearity
-  - Deep convolutional neural networks(DCNNs)에서 `ReLU`는 동등한 `tahn`보다 학습 속도가 빠름 -> 빠른 학습은 큰 모델과 많은 데이터셋에 효과적임
+  - Deep convolutional neural networks(DCNNs)에서 `ReLU`는 동등한 `tahn`보다 학습 속도가 빠름 -> 빠른 학습은 큰 모델과 많은 데이터셋에 효과적임<br>
   ![image](https://github.com/user-attachments/assets/c90eccf5-c79e-4e9e-9b5c-2c9a86bd196d)<br>
 ```
 4개의 ReLU를 이용한 4개의 CNN계층만으로도 CIFAR-10 데이터에 대해 6번 에포크만에 25%의 에러율을 달성함
