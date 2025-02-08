@@ -32,7 +32,7 @@
   - Example) Single recognition task, MNIST digit-recognition(숫자 인식) 작업의 error는 0.3% 미만으로 사람이 하는 것에 근접함
 - 최근에 와서 수백 만 개의 라벨링된 데이터셋 수집 가능해짐 -> 수십만 개의 fully-segmented image로 구성된 ImageNet과 22,000개의 카테고리와 1,500만 개 이상의 라벨을 가지는 고해상도 이미지로 구성된 ImageNet이 포함됨
   - fully-segmented image : 이미지의 유사한 영역 또는 부분(segment)를 동일 클레스 레이블로 그룹화한 이미지
-    ![image](https://github.com/user-attachments/assets/58bd6c5e-156f-4cfd-abbd-1b9e79511995)<br>
+<br>
 
 - 수천 개의 object가 있는 수백 만 개의 이미지 학습 위해선 학습 용량 큰 모델 필요함
 - but, object recognition 작업의 복잡성은 ImageNet 같은 큰 데이터셋으로도 해결 하기 어려움
@@ -40,10 +40,12 @@
 
 - Convolution neural network(CNN)sms 깊이(depth)와 폭(breadth)를 다양하게 조절 가능하고 이미지 특성에 대해 대부분 올바르게 예측 가능함
 - 비슷한 layer 크기를 가지는 표준 FeedForward neural networks와 CNNs를 비교했을 때
-  - CNN -> 더 적은 수의 connections와 parameter 수로 훈련 가능하고 성능 또한 우수함<br>
+- CNN -> 더 적은 수의 connections와 parameter 수로 훈련 가능하고 성능 또한 우수함
+<br>
   
 - CNN의 특성과 상대적으로 효율적인 구조에도 불구하고 여전히 매우 큰 고해상도 이미지에 대한 계산 비용이 높음
-  - GPU의 2D convolution 연산에 최적화되어 있어 CNN 훈련 가능하고 ImageNet은 심각한 overfitting 없이 모델이 훈련할 수 있도록 충분히 라벨링되어 있음<br>
+  - GPU의 2D convolution 연산에 최적화되어 있어 CNN 훈련 가능하고 ImageNet은 심각한 overfitting 없이 모델이 훈련할 수 있도록 충분히 라벨링되어 있음
+<br>
 
 - 본 논문 성과:
   - 매우 큰 CNN 모델을 학습하여 ILSVRC-2010 및 ILSVRC-2012 대회에서 가장 우수한 성적 달성
