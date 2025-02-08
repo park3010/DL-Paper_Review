@@ -28,8 +28,8 @@
 
 <br>
 
-수만 개 정도의 작은 규모를 가지는 라벨링된 데이터셋으론 간단한 recognition(인식) 작업은 가능함 but 실제 환경의 데이터는 매우 복잡하므로 더 큰 데이터셋을 필요로 함
-  Example) Single recognition task, MNIST digit-recognition(숫자 인식) 작업의 error는 0.3% 미만으로 사람이 하는 것에 근접함
+수만 개 정도의 작은 규모를 가지는 라벨링된 데이터셋으론 간단한 recognition(인식) 작업은 가능함 but 실제 환경의 데이터는 매우 복잡하므로 더 큰 데이터셋을 필요로 함<br>
+  Example) Single recognition task, MNIST digit-recognition(숫자 인식) 작업의 error는 0.3% 미만으로 사람이 하는 것에 근접함<br>
     
 최근에 와서 수백 만 개의 라벨링된 데이터셋 수집 가능해짐 -> 수십만 개의 fully-segmented image로 구성된 ImageNet과 22,000개의 카테고리와 1,500만 개 이상의 라벨을 가지는 고해상도 이미지로 구성된 ImageNet이 포함됨
     ```
@@ -38,17 +38,17 @@
     ![image](https://github.com/user-attachments/assets/907ccbd6-5d80-4c4d-9bd9-8909949bccee)
 <br>
 
-수천 개의 object가 있는 수백 만 개의 이미지 학습 위해선 학습 용량 큰 모델 필요함
-but, object recognition 작업의 복잡성은 ImageNet 같은 큰 데이터셋으로도 해결 하기 어려움
+수천 개의 object가 있는 수백 만 개의 이미지 학습 위해선 학습 용량 큰 모델 필요함<br>
+but, object recognition 작업의 복잡성은 ImageNet 같은 큰 데이터셋으로도 해결 하기 어려움<br>
   -> 본 논문의 모델은 우리가 가지고 있지 않은 데이터를 보완하기 위해서 많은 사전 지식을 갖춰야 함
 <br>
 
-Convolution neural network(CNN)는 깊이(depth)와 폭(breadth)를 다양하게 조절하고 이미지 특성에 대해 대부분 올바르게 예측 가능함
-비슷한 layer 크기를 가지는 표준 FeedForward neural networks와 CNNs를 비교했을 때
+Convolution neural network(CNN)는 깊이(depth)와 폭(breadth)를 다양하게 조절하고 이미지 특성에 대해 대부분 올바르게 예측 가능함<br>
+비슷한 layer 크기를 가지는 표준 FeedForward neural networks와 CNNs를 비교했을 때<br>
 CNN -> 더 적은 수의 connections와 parameter 수로 훈련 가능하고 성능 또한 우수함
 <br>
   
-CNN의 특성과 상대적으로 효율적인 구조에도 불구하고 여전히 매우 큰 고해상도 이미지에 대한 계산 비용이 높음
+CNN의 특성과 상대적으로 효율적인 구조에도 불구하고 여전히 매우 큰 고해상도 이미지에 대한 계산 비용이 높음<br>
 이에 대해 GPU는 2D convolution 연산에 최적화되어 있어 CNN 훈련 가능하고 ImageNet은 심각한 overfitting 없이 모델이 훈련할 수 있도록 충분히 라벨링되어 있음
 <br>
 
@@ -78,7 +78,7 @@ CNN의 특성과 상대적으로 효율적인 구조에도 불구하고 여전�
 <br>
 
 본 논문의 신경망은 아래와 같음
-![image](https://github.com/user-attachments/assets/41f28cdb-7537-47f7-9d7f-c9d62e2cc63a)
+![image](https://github.com/user-attachments/assets/41f28cdb-7537-47f7-9d7f-c9d62e2cc63a)<br>
 ```
   network 아키텍처의 특징
 1. ReLU Nonlinearity
