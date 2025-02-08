@@ -94,8 +94,18 @@
 
 - 입력 x에 대한 출력 f는 `f(x) = tanh(x)` or `$$f(x) = (1 + e^-x)^-x$$` 임
   - 경사 하강법을 이용한 훈련시간면에서 위 방법은 `f(x) = max(0,x)` 보다 느림 => ReLU Nonlinearity
-  - Deep convolutional neural networks(DCNNs)에서 `ReLU`는 동등한 `tahn`보다 학습 속도가 빠름
-  <br>
-  ![image](https://github.com/user-attachments/assets/66dd3a80-0f20-4274-8456-733d543d56d3 "4개의 CNN계층을 가진 신경망에서 ReLU(실선)를 이용한 경우가 tanh(점선)을 이용하였을 때 보다 매우 빠르게 25%의 에러율에 도달함")<br>
-  
-    
+  - Deep convolutional neural networks(DCNNs)에서 `ReLU`는 동등한 `tahn`보다 학습 속도가 빠름 -> 빠른 학습은 큰 모델과 많은 데이터셋에 효과적임
+  ![image](https://github.com/user-attachments/assets/c90eccf5-c79e-4e9e-9b5c-2c9a86bd196d)<br>
+```
+4개의 ReLU를 이용한 4개의 CNN계층만으로도 CIFAR-10 데이터에 대해 6번 에포크만에 25%의 에러율을 달성함
+```
+
+<br>
+
+### Training on Multiple GPUs
+
+<br>
+
+- Single GPU의 메모리는 3GB 밖에 되지 않으므로 본 연구에서는 2개의 GPU를 사용함
+  -> 현재 GPU는 병렬화에 적합하고 주 메모리에 접근할 필요 없이 서로의 메모리에서 읽고 쓰기가 가능함
+- 
