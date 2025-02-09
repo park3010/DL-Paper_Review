@@ -124,7 +124,7 @@
   -> 입력 정규화를 진행하는 이유 : 입력값 범위가 다를 경우 Gradient Descent Algorithm 적용이 까다로워짐(최적화하기 힘듬)<br>
 
 <div align="center">
-  Local Response Normalization
-</div>
+  #### Local Response Normalization
+</div><br>
 ---
 
