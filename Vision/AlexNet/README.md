@@ -73,7 +73,7 @@
 
 <br>
 
-### ReLU Nonlinearity
+## ReLU Nonlinearity
 
 <br>
 
@@ -87,7 +87,7 @@
 
 <br>
 
-### Training on Multiple GPUs
+## Training on Multiple GPUs
 
 <br>
 
@@ -99,7 +99,7 @@
 
 <br>
 
-### Local Response Normalization
+## Local Response Normalization
 
 <br>
 
@@ -112,7 +112,7 @@
 <br>
 
 <div aglign="centor">
-  Local Response Noramlization 이해를 위한 추가 설명
+  Local Response Noramlization(LRN) 이해를 위한 추가 설명
 </div>
 
 <br>
@@ -136,7 +136,7 @@
 
 <br>
 
-### Overlapping Pooling
+## Overlapping Pooling
 
 <br>
 
@@ -145,45 +145,37 @@
 
 <br>
 
-### Overall Architecture
+## Overall Architecture
 
 <br>
 
 - 모델 구성: 5개의 Convolutional Layer와 3개의 Fully Connected(FC) Layer로 구성되며 FC layer의 마지막은 softmax 함수를 사용하여 1000개의 output을 출력함
 - 2, 4, 5번째 conv layer는 이전 레이어의 같은 GPU의 값만 입력 값을 받으나 3번째 conv layer에서는 모든 값을 입력받음<br>
 ![Screenshot_20250209_132438_Samsung Notes.jpg](https://github.com/user-attachments/assets/41a62b72-e490-4406-a27b-967112fe442c)<br>
-```
-1st layer(Conv)
-  - input : 224x224x3
-  - filter : 11x11x3. 96개. 4-stride
-  - activation : ReLU + LRN + MaxPooling
 
-2nd layer(Conv)
-  - filter : 5x5x48. 256개
-  - activation : ReLU + LRN + MaxPooling
-
-3rd layer(Conv)
-  - filter : 3x3x256. 384개
-  - activation : ReLU
-  - 유일하게 이전 layer에서 모든 kernel map들과 연결굄
-
-4th layer(Conv)
-  - filter : 3x3x192. 384개
-  - activation : ReLU
-
-5th layer(Conv)
-  - filter : 3x3x192. 256개
-  - activation : ReLU
-
-6th layer(FC)
-  - Neurons : 4096
-  - activation: ReLU
-
-7th layer(FC)
-  - Neurons : 4096
-  - activation : ReLU
-
-8th layer(FC)
-  - Neurons : 1000
-  - activation : Softmax
-```
+  [Conv1]
+    - input : 224x224x3
+    - filter : 11x11x3. 96개. 4-stride
+    - activation : ReLU + LRN + MaxPooling
+  [Conv2]
+    - filter : 5x5x48. 256개
+    - activation : ReLU + LRN + MaxPooling
+  [Conv3]
+    - filter : 3x3x256. 384개
+    - activation : ReLU
+    -> 유일하게 이전 layer에서 모든 kernel map들과 연결굄
+  [Conv4]
+    - filter : 3x3x192. 384개
+    - activation : ReLU
+  [Conv5]
+    - filter : 3x3x192. 256개
+    - activation : ReLU
+  [FC6]
+    - Neurons : 4096
+    - activation: ReLU
+  [FC7]
+    - Neurons : 4096
+    - activation : ReLU
+  [FC8]
+    - Neurons : 1000
+    - activation : Softmax
