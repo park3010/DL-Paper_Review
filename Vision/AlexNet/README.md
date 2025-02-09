@@ -107,5 +107,14 @@
 <br>
 
 - Single GPU의 메모리는 3GB 밖에 되지 않으므로 본 연구에서는 2개의 GPU를 사용함
-  -> 현재 GPU는 병렬화에 적합하고 주 메모리에 접근할 필요 없이 서로의 메모리에서 읽고 쓰기가 가능함
-- 
+- GPU parallelization(병렬화)는 kernel을 반으로 나눠서 각 GPU에 할당하며 GPU 간의 communication은 특정 layer에서만 발생하도록 함
+  -> layer 2,4,5에서는 바로 이전의 동일한 GPU에서 연사된 결과만 가져온 반면, layer 3에서는 GPU communication을 통해 이전 layer에서 연산된 2개의 GPU 결과를 모두 받아옴
+
+- 성능 : 하나의 GPU를 사용하는 conv 계층의 kernel 수가 절반인 네트워크보다 top-1, top-5에서 각각 error 1.7%와 1.2%를 감소시킴, 훈련 시간도 더 빠름
+
+<br>
+
+### Local Response Normalization
+
+<br>
+
