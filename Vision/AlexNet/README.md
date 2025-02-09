@@ -220,6 +220,7 @@
 ## Reducing Overfitting
 
 <br>
+
 - batch size = 128
 - stochastic gradient descent(SGD)
   - momentum = 0.9
@@ -236,7 +237,9 @@
 ## Result
 
 <br>
+
 ![image](https://github.com/user-attachments/assets/cc9cc286-02d5-4221-96be-3721977176d8)
+
 <br>
 
 ```
@@ -262,12 +265,14 @@ Validation set과 Test set을 예측했을 때 정확도 차이가 0.1% 이하�
 <br>
 
 ![image](https://github.com/user-attachments/assets/d29c27d1-05f4-42cb-bd7c-2521637301a4)
+
 <br>
 
 ```
 Figure 3: 224X224X3 의 이미지 입력을 받아 11X11X3 크기의 96개의 커널을 가진 첫번째 합성공계층을 통과한 것이다. 위 3줄은 첫 번째 GPU에서, 아래 3줄은 두 번째 GPU에서 작동한 것
 ```
 <br>
+
 - 첫 번째 GPU에선 주로 색상이 거의 인코딩되지 않았지만 두 번째 GPU에선 색상 인코딩이 진행됨
 
 <br>
@@ -281,6 +286,7 @@ Figure 4: (왼쪽) 8개의 ILSVRC-2010 테스트 이미지에 대해 AlexNet이 
 (오른쪽) 첫번째 열에 위치한 ILSVRC-2010의 테스트 이미지에 대해 나머지 각 열의 이미지 5개는 마지막 은닉층에서 특성벡터에 대한 유클리드 최소거리를 이용하여 얻은 훈련 이미지임
 ```
 <br>
+
 - figure 4를 통해 AlexNet은 중앙에서 벗어난 객체 또한 감지할 수 있으며 top-5에 속하는 예측값이 실제값과 유사한 것을 통해 일리있는 예측을 선보임
 
 <br>
