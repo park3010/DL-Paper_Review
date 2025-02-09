@@ -153,29 +153,29 @@
 - 2, 4, 5번째 conv layer는 이전 레이어의 같은 GPU의 값만 입력 값을 받으나 3번째 conv layer에서는 모든 값을 입력받음<br>
 ![Screenshot_20250209_132438_Samsung Notes.jpg](https://github.com/user-attachments/assets/41a62b72-e490-4406-a27b-967112fe442c)<br>
 
-  [Conv1]
+  - [Conv1]
     - input : 224x224x3
     - filter : 11x11x3. 96개. 4-stride
     - activation : ReLU + LRN + MaxPooling<br>
-  [Conv2]
+  - [Conv2]
     - filter : 5x5x48. 256개
     - activation : ReLU + LRN + MaxPooling<br>
-  [Conv3]
+  - [Conv3]
     - filter : 3x3x256. 384개
     - activation : ReLU
     -> 유일하게 이전 layer에서 모든 kernel map들과 연결굄<br>
-  [Conv4]
+  - [Conv4]
     - filter : 3x3x192. 384개
     - activation : ReLU<br>
-  [Conv5]
+  - [Conv5]
     - filter : 3x3x192. 256개
     - activation : ReLU<br>
-  [FC6]
+  - [FC6]
     - Neurons : 4096
     - activation: ReLU<br>
-  [FC7]
+  - [FC7]
     - Neurons : 4096
     - activation : ReLU<br>
-  [FC8]
+  - [FC8]
     - Neurons : 1000
     - activation : Softmax<br>
