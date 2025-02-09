@@ -126,7 +126,23 @@
 ---
 <br>
 
-<div align="center">
-  Local Response Normalization 
-</div><br>
 
+#### Local Response Noramlization 이해를 위한 추가 설명
+
+<br>
+
+- Local Response Noramlization layer는 측면 억제(lateral inhibition)를 구현한 것임
+
+  - 측면 억제(lateral inhibition): 한 영역에 있는 신경 세포가 상호 간 연결되어 있을 때 한 그 자신의 축색이나 자신과 이웃 신경세포를 매개하는 중간신경세포(interneuron)를 통해 이웃에 있는 신경 세포를 억제하려는 경향<br>
+    ![image](https://github.com/user-attachments/assets/2cef4689-953f-4668-bf85-a8383015e9e6)<br>
+    ```
+    흰색 선에 집중하지 않고 그림을 보게 될 경우 회색의 점이 보이는데 이러한 현상은 측면 억제(lateral inhibition)에 의해 발생함
+    -> 흰색으로 둘러싸인 측면에서 억제를 발생시켜 횐색이 더 반감되어 보인 것
+    ```
+   <br>
+  - ReLU 함수로 인해 
+
+
+
+<br>
+---
