@@ -220,5 +220,73 @@
 ## Reducing Overfitting
 
 <br>
+- batch size = 128
+- stochastic gradient descent(SGD)
+  - momentum = 0.9
+  - weight decay = 0.0005 -> 정규화 뿐만 아니라 학습 오차도 감소시켜줌
+- weight initialized
+  - 표준편차 = 0 의 zero-mean Gaussian distribution(zero-mean 가우시안 분포)를 각 layer에 적용함
+  - 2, 4, 5번째 conv layer와 FC layer의 bias는 1, 나머지는 0으로 초기화함 -> 학습 가속화 적용
+- Learning rate
+  - 모든 layer에서 동일한 학습률을 적용하나 훈련 수행 중 매뉴얼하게 조정함
+  - 0.001로 설정하였으며 현재 학습률로 validation error가 개선되지 않으면 10으로 나눔 -> 총 3번 감소함
 
+<br>
 
+## Result
+
+<br>
+![image](https://github.com/user-attachments/assets/cc9cc286-02d5-4221-96be-3721977176d8)
+<br>
+
+```
+ILSVRC-2010 대회의 테스트 데이터셋에 대한 결과
+  -> Sparse coding : 서로 다른 특징을 학습한 6개의 sparse-coding model에서 나온 예측한 값에 대한 평균을 구함
+  -> SIFT + FVs : Fisher Vectors(FVs)로부터 훈련된 두 개의 분류기의 예측값을 평균함
+```
+<br>
+
+![image](https://github.com/user-attachments/assets/fbe18ab9-f3ef-4307-bb0a-4404f9523afe)
+<br>
+```
+Validation set과 Test set을 예측했을 때 정확도 차이가 0.1% 이하로 나와서 두 지표를 같이 사용하여 비교함
+  -> 1CNN은 CNN 모델 한 개 사용한 것, 5CNN은 5개의 CNN 모델 예측값을 평균낸 것
+  -> 1CNN*과 5CNN* 모델은 mageNet2011의 전체 데이터에 대해 사전학습된 모델임
+=> 전반적으로 CNN 모델 개수가 많을수록 오차율이 낮게 나옴
+```
+
+<br>
+
+### Qualitative Evaluations
+
+<br>
+
+![image](https://github.com/user-attachments/assets/d29c27d1-05f4-42cb-bd7c-2521637301a4)
+<br>
+
+```
+Figure 3: 224X224X3 의 이미지 입력을 받아 11X11X3 크기의 96개의 커널을 가진 첫번째 합성공계층을 통과한 것이다. 위 3줄은 첫 번째 GPU에서, 아래 3줄은 두 번째 GPU에서 작동한 것
+```
+<br>
+- 첫 번째 GPU에선 주로 색상이 거의 인코딩되지 않았지만 두 번째 GPU에선 색상 인코딩이 진행됨
+
+<br>
+
+![image](https://github.com/user-attachments/assets/a60a1f9f-6a8e-463a-aab9-f0566334bbe2)
+
+<br>
+
+```
+Figure 4: (왼쪽) 8개의 ILSVRC-2010 테스트 이미지에 대해 AlexNet이 예측한 가장 유력한 5가지 Label, 정답은 각 이미지의 아래에 표시되어 있고 그에 대한 확률은 빨간색으로 표시함 
+(오른쪽) 첫번째 열에 위치한 ILSVRC-2010의 테스트 이미지에 대해 나머지 각 열의 이미지 5개는 마지막 은닉층에서 특성벡터에 대한 유클리드 최소거리를 이용하여 얻은 훈련 이미지임
+```
+<br>
+- figure 4를 통해 AlexNet은 중앙에서 벗어난 객체 또한 감지할 수 있으며 top-5에 속하는 예측값이 실제값과 유사한 것을 통해 일리있는 예측을 선보임
+
+<br>
+
+### Discussion
+
+<br>
+
+- 본 논문에선 순수 지도학습 만으로도 CNN은 높은 성능을 보였으며, convolutional layer를 하나씩 제거할 때마다 top-1 Accuracy 가 2%씩 감소한 것을 이유로 CNN layer가 깊을수록 효과적임을 강조함
