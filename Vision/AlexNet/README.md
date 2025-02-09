@@ -156,26 +156,26 @@
   [Conv1]
     - input : 224x224x3
     - filter : 11x11x3. 96개. 4-stride
-    - activation : ReLU + LRN + MaxPooling
+    - activation : ReLU + LRN + MaxPooling<br>
   [Conv2]
     - filter : 5x5x48. 256개
-    - activation : ReLU + LRN + MaxPooling
+    - activation : ReLU + LRN + MaxPooling<br>
   [Conv3]
     - filter : 3x3x256. 384개
     - activation : ReLU
-    -> 유일하게 이전 layer에서 모든 kernel map들과 연결굄
+    -> 유일하게 이전 layer에서 모든 kernel map들과 연결굄<br>
   [Conv4]
     - filter : 3x3x192. 384개
-    - activation : ReLU
+    - activation : ReLU<br>
   [Conv5]
     - filter : 3x3x192. 256개
-    - activation : ReLU
+    - activation : ReLU<br>
   [FC6]
     - Neurons : 4096
-    - activation: ReLU
+    - activation: ReLU<br>
   [FC7]
     - Neurons : 4096
-    - activation : ReLU
+    - activation : ReLU<br>
   [FC8]
     - Neurons : 1000
-    - activation : Softmax
+    - activation : Softmax<br>
