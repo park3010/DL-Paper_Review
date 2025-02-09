@@ -2,12 +2,6 @@
 
 <br>
 
-```plaintext
-한 줄 요약 : 
-```
-
-<br>
-
 ## Abstract
 
 <br>
