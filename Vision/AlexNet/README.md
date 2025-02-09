@@ -128,8 +128,9 @@
 ---
 <br>
 
-
-#### Local Response Noramlization 이해를 위한 추가 설명
+<div aglin="centor">
+  Local Response Noramlization 이해를 위한 추가 설명
+</div>
 
 <br>
 
