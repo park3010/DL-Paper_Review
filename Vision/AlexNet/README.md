@@ -160,10 +160,9 @@
   - [Conv2]
     - filter : 5x5x48. 256개
     - activation : ReLU + LRN + MaxPooling<br>
-  - [Conv3]
+  - [Conv3] -> 유일하게 이전 layer에서 모든 kernel map들과 연결됨
     - filter : 3x3x256. 384개
-    - activation : ReLU
-    -> 유일하게 이전 layer에서 모든 kernel map들과 연결굄<br>
+    - activation : ReLU<br>
   - [Conv4]
     - filter : 3x3x192. 384개
     - activation : ReLU<br>
@@ -179,3 +178,47 @@
   - [FC8]
     - Neurons : 1000
     - activation : Softmax<br>
+
+<br>
+
+## Reducing Overfitting
+
+<br>
+
+- 본 논문에서 60만 개의 parameter가 있으므로 Overfitting 피하기 위한 2가지 기법인 `Data Augmentation`과 `Dropout`를 소개함
+
+<br>
+
+### Data Augmentation
+
+<br>
+
+- 가장 쉬운 Overfitting 감소 방법은 데이터셋 늘리는 것 -> 연산량이 작으므로 GPU로 학습하는 동안 CPU에서 계산하여 Augmentation함
+
+  - 두 가지 주요 방법
+    1. `이동`과 `좌우 반전`
+      - 256x256 이미지 내에서 224x224 크기의 patch를 무작위로 자른 뒤 훈련 시킴 -> 기존 훈련 세트에서 2048배 증가
+      - 테스트 진행할 땐 224 x 224크기의 patch 5개(좌상단, 우상단, 우하단, 좌하단 꼭지점에 붙인 4개의 patch와 가운데 patch 1개)와 이를 좌우 반전시킨 10개의 patch를 사용함
+
+    2. RGB 채널 강도 조절
+       - RGB 픽셀에 PCA를 적용하여 N(0,1) 정규 분포에서 추출한 랜덤값을 기존 픽셀에 더하여 색상 조정함
+
+<br>
+
+### Dropout
+
+<br>
+
+- 기존에는 여러 모델의 예측값을 합치는 앙상블 기법을 많이 사용했으나 이 방법은 매우 큰 신경망에서는 비용이 높게 나옴
+- 은닉층의 뉴런을 0.5확률로 0으로 설정하는 `Dropout`은 훈련 비용은 2배지만 매우 효과적인 모델 결합 방법임
+  -> 'Dropped out'된 뉴런은 forward-pass와 back-propagation에서 영향을 미치지 않게 됨
+  -> 본 논문에서는 FC layer 2개에 Dropout을 적용함
+
+
+<br>
+
+## Reducing Overfitting
+
+<br>
+
+
