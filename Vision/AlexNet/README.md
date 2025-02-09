@@ -211,8 +211,8 @@
 
 - 기존에는 여러 모델의 예측값을 합치는 앙상블 기법을 많이 사용했으나 이 방법은 매우 큰 신경망에서는 비용이 높게 나옴
 - 은닉층의 뉴런을 0.5확률로 0으로 설정하는 `Dropout`은 훈련 비용은 2배지만 매우 효과적인 모델 결합 방법임
-  -> 'Dropped out'된 뉴런은 forward-pass와 back-propagation에서 영향을 미치지 않게 됨
-  -> 본 논문에서는 FC layer 2개에 Dropout을 적용함
+  - 'Dropped out'된 뉴런은 forward-pass와 back-propagation에서 영향을 미치지 않게 됨
+  - 본 논문에서는 FC layer 2개에 Dropout을 적용함
 
 
 <br>
