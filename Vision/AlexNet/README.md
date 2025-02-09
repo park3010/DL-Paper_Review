@@ -78,7 +78,9 @@
 <br>
 
 본 논문의 신경망은 아래와 같음<br>
-![image](https://github.com/user-attachments/assets/41f28cdb-7537-47f7-9d7f-c9d62e2cc63a)<br>
+![Screenshot_20250209_132438_Samsung Notes.jpg](https://github.com/user-attachments/assets/41a62b72-e490-4406-a27b-967112fe442c)<br>
+
+![tempFileForShare_20250209-133719.jpg](https://github.com/user-attachments/assets/8e631129-f2b9-4a2c-bc63-eb0a182fea40)<br>
 ```
   network 아키텍처의 특징
 1. ReLU Nonlinearity
