@@ -123,6 +123,8 @@
 - ReLU는 gradient saturating(포화)를 방지하기 위해 입력 정규화를 할 필요 없으나 아래의 `local normalization`을 통해 normalization에 도움됨
   -> 입력 정규화를 진행하는 이유 : 입력값 범위가 다를 경우 Gradient Descent Algorithm 적용이 까다로워짐(최적화하기 힘듬)<br>
 
-<center>가운데<center>
+<div align="center">
+  Local Response Normalization
+</div>
 ---
 
