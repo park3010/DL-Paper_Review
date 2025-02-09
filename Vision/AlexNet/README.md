@@ -73,23 +73,6 @@
 
 <br>
 
-## The Architecture
-
-<br>
-
-본 논문의 신경망은 아래와 같음<br>
-![Screenshot_20250209_132438_Samsung Notes.jpg](https://github.com/user-attachments/assets/41a62b72-e490-4406-a27b-967112fe442c)<br>
-
-![tempFileForShare_20250209-133719.jpg](https://github.com/user-attachments/assets/8e631129-f2b9-4a2c-bc63-eb0a182fea40)<br>
-```
-  network 아키텍처의 특징
-1. ReLU Nonlinearity
-2. Training on Multiple GPUs
-3. Local Response Normalization
-```
-
-<br>
-
 ### ReLU Nonlinearity
 
 <br>
@@ -123,12 +106,12 @@
 - ReLU는 gradient saturating(포화)를 방지하기 위해 입력 정규화를 할 필요 없으나 아래의 `local normalization`을 통해 normalization에 도움됨
   -> 입력 정규화를 진행하는 이유 : 입력값 범위가 다를 경우 Gradient Descent Algorithm 적용이 까다로워짐(최적화하기 힘듬)
 
-  <br>
+<br>
 
 ---
 <br>
 
-<div aglin="centor">
+<div aglign="centor">
   Local Response Noramlization 이해를 위한 추가 설명
 </div>
 
@@ -142,9 +125,65 @@
     흰색 선에 집중하지 않고 그림을 보게 될 경우 회색의 점이 보이는데 이러한 현상은 측면 억제(lateral inhibition)에 의해 발생함
     -> 흰색으로 둘러싸인 측면에서 억제를 발생시켜 횐색이 더 반감되어 보인 것
     ```
-    - ReLU 함수는 입력값을 양수가 들어올 시 입력값 그대로 출력함, 이로 인해 conv 계층에서 ReLU 함수 적용 시 매우 높은 하나의 픽셀값이 나올 수 있으며 매우 높은 픽셀값은 주변의 픽셀에 영향을 미칠 수 있으므로 feature map에서 인접한 위치에 있는 픽셀끼리 정규화 해줌<br>
-    ![image](https://github.com/user-attachments/assets/6eab8328-192f-4124-93fa-61bdaf6a5379)
-
 <br>
 
 ---
+
+<br>
+
+- ReLU 함수는 입력값을 양수가 들어올 시 입력값 그대로 출력하기 때문에 합성곱이나 pooling 연산 이후 ReLU 함수 적용 시 매우 높은 하나의 픽셀 값이 주변의 픽셀에 영향을 미칠 수 있으므로 feature map에서 인접한 위치에 있는 픽셀끼리 정규화 해줌<br>
+![image](https://github.com/user-attachments/assets/6eab8328-192f-4124-93fa-61bdaf6a5379)
+
+<br>
+
+### Overlapping Pooling
+
+<br>
+
+- 일반적으로 풀링 시 뉴런이 중복되지 않도록 `stride = pooling size` 풀링을 진행하나 본 연구에서는 `stride = 2 < pooling size = 3` 으로 설정해 풀링되는 뉴런이 중복되도록 진행하여 error 감소 및 과적합 감소 효과를 얻음<br>
+![image](https://github.com/user-attachments/assets/e53e6b2e-b81c-4df5-98fa-6bcaee8ff470)
+
+<br>
+
+### Overall Architecture
+
+<br>
+
+- 모델 구성: 5개의 Convolutional Layer와 3개의 Fully Connected(FC) Layer로 구성되며 FC layer의 마지막은 softmax 함수를 사용하여 1000개의 output을 출력함
+- 2, 4, 5번째 conv layer는 이전 레이어의 같은 GPU의 값만 입력 값을 받으나 3번째 conv layer에서는 모든 값을 입력받음<br>
+![Screenshot_20250209_132438_Samsung Notes.jpg](https://github.com/user-attachments/assets/41a62b72-e490-4406-a27b-967112fe442c)<br>
+```
+1st layer(Conv)
+  - input : 224x224x3
+  - filter : 11x11x3. 96개. 4-stride
+  - activation : ReLU + LRN + MaxPooling
+
+2nd layer(Conv)
+  - filter : 5x5x48. 256개
+  - activation : ReLU + LRN + MaxPooling
+
+3rd layer(Conv)
+  - filter : 3x3x256. 384개
+  - activation : ReLU
+  - 유일하게 이전 layer에서 모든 kernel map들과 연결굄
+
+4th layer(Conv)
+  - filter : 3x3x192. 384개
+  - activation : ReLU
+
+5th layer(Conv)
+  - filter : 3x3x192. 256개
+  - activation : ReLU
+
+6th layer(FC)
+  - Neurons : 4096
+  - activation: ReLU
+
+7th layer(FC)
+  - Neurons : 4096
+  - activation : ReLU
+
+8th layer(FC)
+  - Neurons : 1000
+  - activation : Softmax
+```
