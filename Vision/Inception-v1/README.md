@@ -19,9 +19,13 @@
 
 - 본 논문에서 ILSVRC 2014 대회에서 제출한 GoogLeNet은 두 해 전 우승한 f Krizhevsky et al의 아키텍처보다 12배 적은 paramters로 더 높은 정확도를 보임
 - Object Detection 분야에서의 성능 향상은 deep architectures와 기존 컴퓨터 비전의 시너지 덕분
-  - 대표적인 예제로 Girshick et al의 R-CNN이 있음<br>
+  - 대표적인 예제로 Girshick et al의 R-CNN이 있음
+
+<br>
   
-- 효율성을 고려하여 모델이 추론(Inference) 시 약 15억 번의 곱셈-덧셈 연산 내에서 계산 비용 유지하도록 설계함<br>
+- 효율성을 고려하여 모델이 추론(Inference) 시 약 15억 번의 곱셈-덧셈 연산 내에서 계산 비용 유지하도록 설계함
+
+<br>
 
 - 컴퓨터 비전을 위한 효율적인 심층 신경망 : Inception
   - 본 논문에서 본 "Deep"의 의미
@@ -40,8 +44,28 @@
 - Serre et al은 영장류 시각 피질(Primate Visual Cortex)의 신경 과학 모델에 영감을 받아 다양한 크기의 고정된 Gabor Filter를 활용한 multiple scale 문제 처리 방식을 제안함
   - 해당 방식은 Inception가 유사하나 차이점 존재함
     - Serre et al은 고정된 2-layer 모델을 사용함
-    - Inception 모델은 모든 필터가 학습되며
+    - Inception 모델은 모든 필터가 학습되며 Inception layer가 여러 번 반복되어 구성됨(GoogLeNet의 경우 22-layer로 구성됨)
+   
+<br>
 
+- Lin et al은 신경망의 표현력 향상을 위해 Network-in-Network 접근 방식을 제안함
+  - Network-in-Network 접근 방식 : 1×1 convolution layer와 ReLU 함수를 적용한 형태와 유사하여 CNN 통합 파이프라인에 손쉽게 통합 가능함
+  - 본 논문에서는 표현력 증가 뿐만 아니라 차원 축소 모듈을 통한 계산 병목 현상을 제거하기 위해 사용 <br>
+    -> 이를 통해 성능 저하없이 네트워크의 깊이와 너비 증가시켜 더 큰 모델 구축 가능
+
+<br>
+
+- Object Detection 분야에서 가장 선도적인 접근 방법은 Girshick et al의 R-CNN이며 2단계 접근 방식을 가짐
+  - 색상이나 슈퍼픽셀 일관성 등 저수준 단서(Low-Level cues)로 카테고리에 구애받지 않는 방식(category-agnostic)으로 object 후보 생성함
+  - CNN Classifier로 해당 위치의 객체 범주 식별함 <br>
+  => 이를 통해 bounding box 분할 정확도 향상 및 최신 CNN의 강력한 분류 성능 활용 가능 이라는 장점을 가짐
+- 본 논문에서도 Object model에서도 유사한 파이프라인을 사용했으나 multi-box 예측 기법을 활용한 object bounding boxd의 recall 증가, 앙상블 접근 방식을 사용한 bounding box 후보 분류 성능 향상이라는 각 단계의 개선점 탐구함
+
+<br>
+
+## Related Work
+
+<br>
 
 
 
