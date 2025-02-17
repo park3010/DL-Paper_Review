@@ -45,12 +45,12 @@
 <br>
 
 - Serre et al은 영장류 시각 피질(Primate Visual Cortex)의 신경 과학 모델에 영감을 받아 다양한 크기의 고정된 Gabor Filter를 활용한 multiple scale 문제 처리 방식을 제안함
-```
-Inception 모델과 유사함 but
-- Serre et al은 2-layer 모델 사용
-- Inception 모델은 모든 필터 학습, Inception layer이 여러 번 반복됨
-  -> GoogLeNet은 22-layer로 구성
-```
+  ```
+  Inception 모델과 유사함 but
+  - Serre et al은 2-layer 모델 사용
+  - Inception 모델은 모든 필터 학습, Inception layer이 여러 번 반복됨
+    -> GoogLeNet은 22-layer로 구성
+  ```
 
 <br>
 
