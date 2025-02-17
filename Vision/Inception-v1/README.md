@@ -55,26 +55,34 @@
 <br>
 
 - Lin et al은 신경망의 표현력 향상을 위해 Network-in-Network 접근 방식 제안함
-```
-Network-in-Network
-- conv layer에 적용 시 1×1 conv layer와 ReU 함수가 적용된 형태와 유사
-- CNN 파이프라인도 쉽게 통합 가능
-```
+  ```
+  Network-in-Network
+  - conv layer에 적용 시 1×1 conv layer와 ReU 함수가 적용된 형태와 유사
+  - CNN 파이프라인도 쉽게 통합 가능
+  ```
+
 - 본 논문에서도 1×1 convolution 접근 방식 사용
-```
-1×1 convolution
-- 차원 축소를 통한 계산 병목(Computational Bottleneck) 제거
-- 성능 저하 없이 네트워크 깊이와 너비 증가
-```
+  ```
+  1×1 convolution
+  - 차원 축소를 통한 계산 병목(Computational Bottleneck) 제거
+  - 성능 저하 없이 네트워크 깊이와 너비 증가
+  ```
 
 <br>
 
-- Object Detection 분야에서 가장 선도적인 접근 방법은 Girshick et al의 R-CNN이며 2단계 접근 방식을 가짐
-  - 색상이나 슈퍼픽셀 일관성 등 저수준 단서(Low-Level cues)로 카테고리에 구애받지 않는 방식(category-agnostic)으로 object 후보 생성함
-  - CNN Classifier로 해당 위치의 객체 범주 식별함 <br>
-  => 이를 통해 bounding box 분할 정확도 향상 및 최신 CNN의 강력한 분류 성능 활용 가능 이라는 장점을 가짐
-- 본 논문에서도 Object model에서도 유사한 파이프라인을 사용했으나 multi-box 예측 기법을 활용한 object bounding boxd의 recall 증가, 앙상블 접근 방식을 사용한 bounding box 후보 분류 성능 향상이라는 각 단계의 개선점 탐구함
-
+- Object Detection 분야에서의 R-CNN:
+  ```
+  1. 색상이나 슈퍼픽셀 일관성 등 저수준 단서(Low-Level cues)로 카테고리에 구애받지 않는 방식(category-agnostic)으로 object 후보 생성
+    -> 바운딩 박스 분할 정확도 향상
+  2. CNN Classifier로 해당 위치의 객체 범주 식별
+    -> CNN의 강력한 분류 성능 활용
+  ```
+- 본 논문에서도 Object model에서도 유사한 파이프라인을 사용
+  ```
+  추가 개선점 탐구
+  - multi-box 예측 기법을 활용한 object bounding boxd의 recall 증가
+  - 앙상블 접근 방식을 사용한 bounding box 후보 분류 성능 향상
+  ```
 <br>
 
 ## Motivation and High Level Considerations
