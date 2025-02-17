@@ -8,7 +8,7 @@
 
 <br>
 
-|:Title:|Journal/Conference|Year|Progress|
+|Title|Journal/Conference|Year|Progress|
 |:---|:---:|:---:|:---:|
 |A Neural Probabilistic Language Model (NNLM)|[JLMR](https://papers.nips.cc/paper_files/paper/2000/file/728f206c2a01bf572b5940d7d9a8fa4c-Paper.pdf)|2003|`Not Yet`|
 |Efficient Estimation of Word Representations in Vectore Space (Word2Vec)|[ICLR](https://arxiv.org/pdf/1301.3781)|2013|`Not Yet`|
