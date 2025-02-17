@@ -10,7 +10,7 @@
 
 |Title|Journal/Conference|Year|Progress|
 |:---|:---:|:---:|:---:|
-|[ImageNet Classification with Deep Convolutional Neural Networks](AlexNet)|[NIPS](https://proceedings.neurips.cc/paper_files/paper/2012/file/c399862d3b9d6b76c8436e924a68c45b-Paper.pdf)|2012|`Paper Reading`|
+|[ImageNet Classification with Deep Convolutional Neural Networks](AlexNet)|[NIPS](https://proceedings.neurips.cc/paper_files/paper/2012/file/c399862d3b9d6b76c8436e924a68c45b-Paper.pdf)|2012|`Complete`|
 |Going Deeper with Convolutions (Inception-v1)|[arXiv](https://arxiv.org/abs/1409.4842)|2014|`Not Yet`|
 |Very Deep Convolutional Networks for Large-Scale Image Recognition|[arXiv](https://arxiv.org/pdf/1409.1556)|2015|`Not Yet`|
 |Deep Residual Learning for Image Recognition (ResNet)|[arXiv](https://arxiv.org/pdf/1512.03385)|2015|`Not Yet`|
