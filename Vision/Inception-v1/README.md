@@ -31,6 +31,21 @@
 
 <br>
 
-## Introduction
+## Related Work
 
 <br>
+
+- CNN은 일반적으로 연속적으로 쌓은 Convolution layer 층(선택에 따라 대비 정규화(contrast normalization)나 Maxpooling이 따라오기도 함)이 배치되어 있으며 하나 이상의 Fully-connected layer가 배치되는 표준 형태를 따름
+- 데이터 데이터 셋 처리 트랜드 -> layer 수 증가, layer의 크기 증가, dropout 기법을 활용한 overfitting 방지
+- Serre et al은 영장류 시각 피질(Primate Visual Cortex)의 신경 과학 모델에 영감을 받아 다양한 크기의 고정된 Gabor Filter를 활용한 multiple scale 문제 처리 방식을 제안함
+  - 해당 방식은 Inception가 유사하나 차이점 존재함
+    - Serre et al은 고정된 2-layer 모델을 사용함
+    - Inception 모델은 모든 필터가 학습되며
+
+
+
+
+
+
+
+
