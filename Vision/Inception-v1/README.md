@@ -19,9 +19,9 @@
 
 - 본 논문에서 ILSVRC 2014 대회에서 제출한 GoogLeNet은 두 해 전 우승한 f Krizhevsky et al의 아키텍처보다 12배 적은 paramters로 더 높은 정확도를 보임
 - Object Detection 분야에서의 성능 향상은 deep architectures와 기존 컴퓨터 비전의 시너지 덕분
-  - 대표적인 예제로 Girshick et al의 R-CNN이 있음
-
-- 효율성을 고려하여 모델이 추론(Inference) 시 약 15억 번의 곱셈-덧셈 연산 내에서 계산 비용 유지하도록 설계함
+  - 대표적인 예제로 Girshick et al의 R-CNN이 있음<br>
+  
+- 효율성을 고려하여 모델이 추론(Inference) 시 약 15억 번의 곱셈-덧셈 연산 내에서 계산 비용 유지하도록 설계함<br>
 
 - 컴퓨터 비전을 위한 효율적인 심층 신경망 : Inception
   - 본 논문에서 본 "Deep"의 의미
