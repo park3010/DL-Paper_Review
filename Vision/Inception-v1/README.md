@@ -67,9 +67,20 @@
 
 <br>
 
+- 심층 신경망 성능 향상을 가장 간단한 방법은 네트워크의 깊이와 너비를 포함한 네트워크의 크기를 늘리는 방법임
+
+- 대규모의 라벨링된 학습 데이터가 존재하는 경우 적합하나 두 가지 주요 단점 가짐
+```
+1. 네트워크 크기 커질 수록 paprameter 수 증가 -> overfitting에 더 취약해짐
+2. 네트워크 크기 증가할수록 자원 소모량이 급격히 증가함
+```
+<br>
+
+- 문제 해결 방법 : Convolutions 내부에서 Fully-Connected 구조를 희소 연결(sparsely connected) 구조로 전환
+![image](https://github.com/user-attachments/assets/e72e2128-5ee0-47c9-b9e9-359b90d5c4ef)
 
 
+<br>
 
-
-
+=> Inception 아키텍처는 희소 구조를 조밀한(Dense) 구성 요소들로 근사하여 구현하는 접근법임
 
