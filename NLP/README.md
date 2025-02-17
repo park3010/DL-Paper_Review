@@ -10,12 +10,12 @@
 
 |Title|Journal/Conference|Year|Progress|
 |:---|:---:|:---:|:---:|
-|A Neural Probabilistic Language Model(NNLM)|[JLMR](https://papers.nips.cc/paper_files/paper/2000/file/728f206c2a01bf572b5940d7d9a8fa4c-Paper.pdf)|2003|`Not Yet`|
-|Going Deeper with Convolutions (Inception-v1)|[arXiv](https://arxiv.org/abs/1409.4842)|2013|`Not Yet`|
-|Very Deep Convolutional Networks for Large-Scale Image Recognition|[arXiv](https://arxiv.org/pdf/1409.1556)|2017|`Not Yet`|
-|Deep Residual Learning for Image Recognition (ResNet)|[arXiv](https://arxiv.org/pdf/1512.03385)|2014|`Not Yet`|
-|Rethinking the Inception Architecture for Computer Vision (Inception-v2~v3)|[arXiv](https://arxiv.org/pdf/1512.00567)|1990|`Not Yet`|
-|Inception-v4, Inception-ResNet and the Impact of Residual Connections on Learning|[arXiv](https://arxiv.org/pdf/1602.07261)|1997|`Not Yet`|
-|Densely Connected Convolutional Networks (DenseNet)|[arXiv](https://arxiv.org/pdf/1608.06993)|2014|`Not Yet`|
-|EfficientNet: Rethinking Model Scaling for Convolutional Neural Networks(EfficientNet)|[arXiv](https://arxiv.org/pdf/1905.11946)|2015|`Not Yet`|
+|A Neural Probabilistic Language Model (NNLM)|[JLMR](https://papers.nips.cc/paper_files/paper/2000/file/728f206c2a01bf572b5940d7d9a8fa4c-Paper.pdf)|2003|`Not Yet`|
+|Efficient Estimation of Word Representations in Vectore Space (Word2Vec)|[ICLR](https://arxiv.org/pdf/1301.3781)|2013|`Not Yet`|
+|Enriching Word Vectors with Subword Information (FastText)|[ACL](https://arxiv.org/pdf/1607.01759)|2017|`Not Yet`|
+|Convolutional Neural Networks for Sentence Classification (TextCNN)|[EMNLP](https://aclanthology.org/D14-1181.pdf)|2014|`Not Yet`|
+|Finding Structure in Time (TextRNN)|[CogSCI](https://onlinelibrary.wiley.com/doi/epdf/10.1207/s15516709cog1402_1)|1990|`Not Yet`|
+|LONG SHORT-TERM MEMORY (TextLSTM)|[Neural Computation](https://www.bioinf.jku.at/publications/older/2604.pdf)|1997|`Not Yet`|
+|Learning Phrase Representations using RNN Encoder–Decoderfor Statistical Machine Translation (Seq2Seq)|[EMNLP](https://arxiv.org/pdf/1406.1078)|2014|`Not Yet`|
+|NEURAL MACHINE TRANSLATIONBY JOINTLY LEARNING TO ALIGN AND TRANSLATE (Seq2Seq with Attention)|[ICLR](https://arxiv.org/pdf/1409.0473)|2015|`Not Yet`|
 
