@@ -39,19 +39,33 @@
 
 <br>
 
-- CNN은 일반적으로 연속적으로 쌓은 Convolution layer 층(선택에 따라 대비 정규화(contrast normalization)나 Maxpooling이 따라오기도 함)이 배치되어 있으며 하나 이상의 Fully-connected layer가 배치되는 표준 형태를 따름
-- 데이터 데이터 셋 처리 트랜드 -> layer 수 증가, layer의 크기 증가, dropout 기법을 활용한 overfitting 방지
-- Serre et al은 영장류 시각 피질(Primate Visual Cortex)의 신경 과학 모델에 영감을 받아 다양한 크기의 고정된 Gabor Filter를 활용한 multiple scale 문제 처리 방식을 제안함
-  - 해당 방식은 Inception가 유사하나 차이점 존재함
-    - Serre et al은 고정된 2-layer 모델을 사용함
-    - Inception 모델은 모든 필터가 학습되며 Inception layer가 여러 번 반복되어 구성됨(GoogLeNet의 경우 22-layer로 구성됨)
-   
+- CNN은 LeNet-5의 연속적인 Convolution laye layer와 한 개 이상의 Fully-connected layer를 갖는 표준 구조를 따름
+- 해당 디자인 기반 변형 모델이 Image Classification 연구에서 널리 사용되며 대규모 데이터셋 처리에선 네트워크의 layer 수 증가, layer의 크기 증가, dropout 기법을 활용한 overfitting 방지 등을 포함함
+
 <br>
 
-- Lin et al은 신경망의 표현력 향상을 위해 Network-in-Network 접근 방식을 제안함
-  - Network-in-Network 접근 방식 : 1×1 convolution layer와 ReLU 함수를 적용한 형태와 유사하여 CNN 통합 파이프라인에 손쉽게 통합 가능함
-  - 본 논문에서는 표현력 증가 뿐만 아니라 차원 축소 모듈을 통한 계산 병목 현상을 제거하기 위해 사용 <br>
-    -> 이를 통해 성능 저하없이 네트워크의 깊이와 너비 증가시켜 더 큰 모델 구축 가능
+- Serre et al은 영장류 시각 피질(Primate Visual Cortex)의 신경 과학 모델에 영감을 받아 다양한 크기의 고정된 Gabor Filter를 활용한 multiple scale 문제 처리 방식을 제안함
+```
+Inception 모델과 유사함 but
+- Serre et al은 2-layer 모델 사용
+- Inception 모델은 모든 필터 학습, Inception layer이 여러 번 반복됨
+  -> GoogLeNet은 22-layer로 구성
+```
+
+<br>
+
+- Lin et al은 신경망의 표현력 향상을 위해 Network-in-Network 접근 방식 제안함
+```
+Network-in-Network
+- conv layer에 적용 시 1×1 conv layer와 ReU 함수가 적용된 형태와 유사
+- CNN 파이프라인도 쉽게 통합 가능
+```
+- 본 논문에서도 1×1 convolution 접근 방식 사용
+```
+1×1 convolution
+- 차원 축소를 통한 계산 병목(Computational Bottleneck) 제거
+- 성능 저하 없이 네트워크 깊이와 너비 증가
+```
 
 <br>
 
