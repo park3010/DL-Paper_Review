@@ -60,7 +60,6 @@
   - conv layer에 적용 시 1×1 conv layer와 ReU 함수가 적용된 형태와 유사
   - CNN 파이프라인도 쉽게 통합 가능
   ```
-
 - 본 논문에서도 1×1 convolution 접근 방식 사용
   ```
   1×1 convolution
@@ -77,7 +76,7 @@
   2. CNN Classifier로 해당 위치의 객체 범주 식별
     -> CNN의 강력한 분류 성능 활용
   ```
-- 본 논문에서도 Object model에서도 유사한 파이프라인을 사용
+- 본 논문에서도 Object model로 유사한 파이프라인을 사용
   ```
   추가 개선점 탐구
   - multi-box 예측 기법을 활용한 object bounding boxd의 recall 증가
@@ -98,11 +97,20 @@
 ```
 <br>
 
-- 문제 해결 방법 : Convolutions 내부에서 Fully-Connected 구조를 희소 연결(sparsely connected) 구조로 전환
-![image](https://github.com/user-attachments/assets/e72e2128-5ee0-47c9-b9e9-359b90d5c4ef)
+- 문제 해결 방법 : Convolutions 내부에서 dense 한 Fully-Connected 구조를 Sparsely Connected 구조로 전환
+![image](https://github.com/user-attachments/assets/0f698514-e565-443a-b8e4-f39d9314975b)
 
 
 <br>
 
 => Inception 아키텍처는 희소 구조를 조밀한(Dense) 구성 요소들로 근사하여 구현하는 접근법임
+
+<br>
+
+## Architectural Details
+
+<br>
+
+- Inception 아키텍처의 핵심 아이디어 : CNN에서 각 요소를 최적의 Local Sparse Structure로 근사화하고 dense component로 변환하는 것 <br>
+  -> Sparse 매트릭스를 서로 묶어(클러스터링 하여) 상대적으로 Dense 한 Submatrix를 만든다는 것
 
