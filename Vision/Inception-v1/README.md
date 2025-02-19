@@ -143,3 +143,18 @@
   ![image](https://github.com/user-attachments/assets/1771c79e-e92a-4d71-b73a-c367a6ce2e10)
 
 - Inception 아키텍처의 이점은 각 층별 unit의 수가 크게 증가해도 연산량 유지가 가능함
+
+
+<br>
+
+## GoogLeNet
+
+<br>
+
+- 본 파트에선 Inception module이 적용된 GoogLeNet의 구조에 대해 설명함
+  ![image](https://github.com/user-attachments/assets/27ec0f35-169c-4bc0-a44d-e7efb9e94b0c)
+
+- 모든 Conv layer에는 ReLU가 적용됨
+- 본 모델의 입력은 224×224의 RGB 이미지를 사용하며 Mean Subtraction(평균값 제외)를 적용함
+- #3×3 reduce 및 #5×5 reduce는 3×3 및 5×5 conv layer 앞에 적용하는 1×1 filter 채널 수를 의미함
+- pool proj 열은 max-pooing layer 뒤에 오는 1×1 filter 채널 수를 의미함
