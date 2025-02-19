@@ -203,7 +203,15 @@ auxiliary classifier : 작은 CNN 형태를 뛰며 학습 중에는 auxiliary cl
 
 ```
 Part D : 예측 결과가 나오는 모델의 끝 부분
-classifier 이전에 Global Average pooling layer(GAP)를 적용하여 이전 layer에서 추출한 feature map들에 대한 평균을 낸 뒤 이어서 1차원 벡터로 변환
+classifier 이전에 Global Average pooling layer(GAP)를 적용함
+이전 layer에서 추출한 feature map들에 대한 평균을 낸 뒤 이어서 1차원 벡터로 변환
+
 FC layer를 이용하여 1차원 벡티로 변환하는 경우 가중치 개수는 7x7x1024 = 51.3M임
 but GAP 적용 시 단 한개의 가중치가 필요없으므로 평균내어 1차원 벡터로 만들면 가중치 개수를 상당히 줄여줌
 ```
+
+<br>
+
+![image](https://github.com/user-attachments/assets/25e4ec38-41b0-446b-a5fd-864988608351)
+
+<br>
