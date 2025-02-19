@@ -128,6 +128,8 @@
 - 본 논문의 Inception 아키텍처에서는 편의를 위해 filter size를 1x1, 3x3, 5x5로 제한하여 다양한 크기의 filter를 조합함
 - 또한 이미 성능이 검증된 pooling layer를 통해 병렬적인 pooling path를 추가하여 성능 향상시킴
 
-<br>
+  ![image](https://github.com/user-attachments/assets/045daf1d-78c9-4daf-ac54-3d7b2dac20b2)
 
-- 
+- Inception Modules은 layer을 쌓아 output에 가까워질수록 고차원의 특징을 학습하게 되면서 공간적 집중도(Spatial Concentration)는 감소하게 됨
+- 그러므로 3×3 및 5×5 conv layer를 비율을 늘려야 하는데 이는 연산량 급증으로 이어짐 <br>
+  -> 
