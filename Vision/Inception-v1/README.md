@@ -191,5 +191,19 @@ Part C : auxiliary classifier가 적용된 부분
 상대적으로 옅은 네트워크에서도 좋은 성능을 보이는 것을 통해 네트워크 중간 layer에서 생성된 feature가 매우 차별성이 강함을 시사함
 중간 layer에서 auxiliary classifier를 추가하여 출력 결과를 역전파로 전달하여 gradient가 잘 전달되도록 돕고, 정규화 효과도 제공함
 
-auxiliary classifier: 작은 CNN 형태를 뛰며 학습 중에는 auxiliary classifier의 loss에 가중치 0.3을 곱하고 추론 시 제거함
+auxiliary classifier : 작은 CNN 형태를 뛰며 학습 중에는 auxiliary classifier의 loss에 가중치 0.3을 곱하고 추론 시 제거함
+```
+
+<br>
+
+#### part D
+
+![image](https://github.com/user-attachments/assets/25fe0117-795b-48d6-bc83-5cda031ffe32)
+![image](https://github.com/user-attachments/assets/62aec2ab-3741-4653-b569-3f3250c941a0)
+
+```
+Part D : 예측 결과가 나오는 모델의 끝 부분
+classifier 이전에 Global Average pooling layer(GAP)를 적용하여 이전 layer에서 추출한 feature map들에 대한 평균을 낸 뒤 이어서 1차원 벡터로 변환
+FC layer를 이용하여 1차원 벡티로 변환하는 경우 가중치 개수는 7x7x1024 = 51.3M임
+but GAP 적용 시 단 한개의 가중치가 필요없으므로 평균내어 1차원 벡터로 만들면 가중치 개수를 상당히 줄여줌
 ```
