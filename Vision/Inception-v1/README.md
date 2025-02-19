@@ -212,6 +212,20 @@ but GAP 적용 시 단 한개의 가중치가 필요없으므로 평균내어 1�
 
 <br>
 
-![image](https://github.com/user-attachments/assets/25e4ec38-41b0-446b-a5fd-864988608351)
+![image](https://github.com/user-attachments/assets/d2504d91-1c61-4e7e-ae2b-59085e787a4b)
 
 <br>
+
+<br>
+
+## Training Methodology
+
+<br>
+
+- SGD + Momentum : 0.9
+- 8 Epochs마다 Learning Rate 4%씩 감소시킴
+- Final Model은 Polyak Averaging 사용하여 생성
+- 이미지 샘플링 방법
+  - 다양한 크기의 patches 샘플링 : patch 크기는 원본 이미지의 8 ~ 100% 포함하도록 균등분포 샘플링
+  - 이미지 비율은 3:4 ~ 4:3 사이에서 무작위 선택
+  - Photometric Distortions 기법 사용
