@@ -111,6 +111,23 @@
 
 <br>
 
+#### 기존의 Inception module
+
 - Inception 아키텍처의 핵심 아이디어 : CNN에서 각 요소를 최적의 Local Sparse Structure로 근사화하고 dense component로 변환하는 것 <br>
   -> Sparse 매트릭스를 서로 묶어(클러스터링 하여) 상대적으로 Dense 한 Submatrix를 만든다는 것
+- 이전 layer의 각 유닛이 입력 이미지의 특정 부분에 해당한다고 가정했을때 lower layer(입력과 가까운 layer)에서는 특정 부분(인접한 유닛들) 강한 상관성을 보이므로 1×1 Convolutions으로 처리할 수 있음
+  ![image](https://github.com/user-attachments/assets/fbc338a6-a2a7-4e2c-8dc7-f908ea701900)
+  ```
+  공간적으로 널리 퍼진(Spread-Out) 클러스터의 경우 조금 더 큰 patch 기반 Convolutions으로 처리 가능
+  -> 영역 커질수록 patch의 개수는 점점 감소함
+  ```
 
+<br>
+
+- 그림처럼 더 넓은 영역의 Convolution filter가 있어야 상관관계 높은 뉴런(Correlated unit)을 덮을 수 있는 경우가 있음
+- 본 논문의 Inception 아키텍처에서는 편의를 위해 filter size를 1x1, 3x3, 5x5로 제한하여 다양한 크기의 filter를 조합함
+- 또한 이미 성능이 검증된 pooling layer를 통해 병렬적인 pooling path를 추가하여 성능 향상시킴
+
+<br>
+
+- 
