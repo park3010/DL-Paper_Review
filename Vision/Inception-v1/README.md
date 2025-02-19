@@ -158,3 +158,38 @@
 - 본 모델의 입력은 224×224의 RGB 이미지를 사용하며 Mean Subtraction(평균값 제외)를 적용함
 - #3×3 reduce 및 #5×5 reduce는 3×3 및 5×5 conv layer 앞에 적용하는 1×1 filter 채널 수를 의미함
 - pool proj 열은 max-pooing layer 뒤에 오는 1×1 filter 채널 수를 의미함
+
+<br>
+
+#### part A
+
+![image](https://github.com/user-attachments/assets/22daba68-a920-465d-9c6f-fd96662ff295)
+
+```
+Part A : 입력 이미지와 가장 가까운 layer가 위치한 곳
+연산 효율성을 위해 lower layer에는 기본적인 CNN 구조를 띄고 있음
+```
+
+<br>
+
+#### part B
+
+![image](https://github.com/user-attachments/assets/e00c6fd7-dcdd-4418-812b-58caab21b140)
+```
+Part B : Inception module로 다양한 feature 추출을 위해 1×1, 3×3, 5×5 conv layer 병렬 연산 수행함
+차원 축소를 통해 연산량을 줄이고자 3×3, 5×5 conv layer 앞에 1×1 conv layer를 적용함
+```
+
+<br>
+
+#### part C
+
+![image](https://github.com/user-attachments/assets/7b92d7ac-6990-47b5-9c6f-6c86410fcc86)
+```
+Part C : auxiliary classifier가 적용된 부분
+네트워크 깊이가 깊어질수록 Gradient Vanishing 문제가 발생할 수 있음
+상대적으로 옅은 네트워크에서도 좋은 성능을 보이는 것을 통해 네트워크 중간 layer에서 생성된 feature가 매우 차별성이 강함을 시사함
+중간 layer에서 auxiliary classifier를 추가하여 출력 결과를 역전파로 전달하여 gradient가 잘 전달되도록 돕고, 정규화 효과도 제공함
+
+auxiliary classifier: 작은 CNN 형태를 뛰며 학습 중에는 auxiliary classifier의 loss에 가중치 0.3을 곱하고 추론 시 제거함
+```
