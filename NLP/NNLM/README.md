@@ -99,7 +99,8 @@
 
 <br>
 
-- 모델 구조
+- 모델 구조 <br>
+
 ![image](https://github.com/user-attachments/assets/51b43f37-1150-4b24-ab87-da3aab021a40)
 ```
 - w_t는 t번째 등장하는 단어
