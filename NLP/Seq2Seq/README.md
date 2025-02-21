@@ -76,7 +76,16 @@
   <eos> : "end of sequence", 시퀀스가 끝났음을 나타냄
 
    [encoder]
-  - 
+  - embedding layer을 통과한 첫 번째 입력 토큰 <sos>와 초기 은닉값 h0을 인코더에 함께 통과시키면 h1이 출력됨
+  - 출력된 h1을 embedding layer을 통과한 두 번째 토큰인 "guten"의 임베딩 값과 함께 다음 인코더에 함께 통과시키면 h2가 출력됨
+  - 이 과정을 반복하며, 마지막 인코더에서 출력되는 h4는 고정된 크기의 context vector(v)가 됨
+
+   [dncoder]
+  - 인코더에서 출력된 context vector는 embedding layer을 통과한 <sos> 토큰과 함께 디코더를 통과시켜 s1을 출력함
+  - s1는 Linear function을 거쳐 "good"을 나타내는 벡터로 출력됨
+  - 해당 벡터 출력값 y1은 s1과 함께 다음 디코더로 입력되어 s2를 출력하게 됨
+  - 출력한 s2은 동일하게 Linear function을 거쳐 y2를 출력하며, s2와 y2는 다음 디코더의 입력으로 들어가게 됨
+  - <eos>가 출력될 때까지 이 과정을 반복함
   ```
 
 
