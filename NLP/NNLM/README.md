@@ -99,9 +99,9 @@
 
 <br>
 
+- 모델 구조
 ![image](https://github.com/user-attachments/assets/51b43f37-1150-4b24-ab87-da3aab021a40)
 ```
-모델 구조
 - w_t는 t번째 등장하는 단어
 - t는 예측할 단어가 등장하는 위치, n은 입력되는 단어 개수
 
