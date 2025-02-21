@@ -22,7 +22,7 @@
 <br>
 
 - DNN은 음성 인식, 객체 인식 등 분야에서 뛰어난 성능을 보이나 input과 target vector가 고정되어(fixed) 있어 sequential problem을 제대로 해결할 수 없다는 한계점이 존재함
-- 본 논문에서는 두 개의 LSTM을 encoder와 decoder로 사용하여 입력 시퀀스를 한 번에 한 타임스텝싹 읽어서 고정된 차원의 큰 벡터 표현을 얻고 해당 벡터에서 출력 시퀀스를 추출함
+- 본 논문에서는 두 개의 LSTM을 encoder와 decoder로 사용하여 입력 시퀀스를 한 번에 한 타임스텝싹 읽어서 고정된 차원의 큰 벡터 표현을 얻고 해당 벡터에서 출력 시퀀스를 추출함 <br>
   ![image](https://github.com/user-attachments/assets/f4f775fb-0e68-4e7e-a419-97f105e4d811)
   ```
   두 번째 LSTM은 입력 시퀀스에 의해 조건이 부여된 순환 신경망(RNN) 기반의 언어 모델과 유사
