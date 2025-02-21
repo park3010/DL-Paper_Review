@@ -38,5 +38,16 @@
 - 통계적 Language model에서 단어 시퀀스에서 이전 단어들이 주어졌을때 다음 단어가 나타날 조건부 확률로 표현함
   ![image](https://github.com/user-attachments/assets/9428feb7-90da-4f52-b839-cdae58d6231a)
   - $w_t$ 는 $t$번재 단어, 부분 시퀀스는 $w^i_t = (w_i, w_{i+1}, ..., w_{i-1}, w_i)$로 표현
+ 
+<br>
 
 - 
+
+
+
+
+
+
+
+
+
