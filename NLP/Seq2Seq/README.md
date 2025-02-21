@@ -59,12 +59,35 @@
   - LSTM-LM을 사용하여 $v$로부터 $y_1, ..., y_{T^'}$의 확률을 계산함
 
   - 어휘(Vocabulary) 내 모든 단어에 대한 softmax를 표현하여 $p(y_t|v, y_1, ..., y_{t-1})$ 분포를 구함
-
-  - 각 문장은 End-of-Sentence symbol "<EOS>"로 끝냄
   ```
+
+<br>
 
 #### 본 논문의 LSTM 차이점
   - 입력 시퀀스를 위한 LSTM, 출력 시퀀스를 위한 LSTM 두 개를 사용하여 모델의 parameter 수는 증가했지만 연산 비용은 거의 증가하지 않음
   - 4개의 layer로 구성된 심층 LSTM 사용
   - 입력 문장의 단어 순서를 뒤집음  <br>
-    -> 원본 문장이 "a, b, c"라면 기존에는 "α, β, γ"로 매핑했으나 본 논문에서는 "c, b, a"를 "α, β, γ"로 매핑하여 SGD를 통해 입출력 간의 연결을 쉽게 설정할 수 있도록 함
+    -> 원본 문장이 "a, b, c"라면 기존에는 "α, β, γ"로 매핑했으나 본 논문에서는 "c, b, a"를 "α, β, γ"로 매핑하여 SGD를 통해 입출력 간의 연결을 쉽게 설정할 수 있도록 함 <br>
+
+  ![image](https://github.com/user-attachments/assets/f4024aaf-1ed1-4faa-9443-a8e78c919bf5)
+  ```
+   입력 시퀀스 내 토큰
+  <sos> : "start of sequence", 시퀀스가 시작됨을 나타냄
+  <eos> : "end of sequence", 시퀀스가 끝났음을 나타냄
+
+   [encoder]
+  - 
+  ```
+
+
+<br>
+
+## Experiments
+
+<br>
+
+- 
+
+
+
+
