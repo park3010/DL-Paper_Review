@@ -39,6 +39,16 @@
 
 <br>
 
-- 
+- RNN은 기본적으로 순차 데이터를 다룰 수 있도록 전방향 신경망을 일반화한 것으로 sequencial problem에 매우 적합한 model임 <br>
+  ![image](https://github.com/user-attachments/assets/b7f22b79-8ffd-4ee0-9793-fa6c41176fb0)
+  ```
+  입력 시퀀스 $(x_1, ..., x_r)$ 이 주어졌을때 RNN은 위 방정식을 반복하여 출력 시퀀스 $(y_1, ..., y_r)$ 을 계산함
+  ```
 
+<br>
+
+![image](https://github.com/user-attachments/assets/a099cc85-4ddd-4c10-a847-4f86dc8f8b55)
+
+- but 입력 시퀀스와 출력 시퀀스의 길이가 다를 경우 좋은 성능일 보이기 어려움, 또한 RNN은 장기 의존성(long-term dependencies)이 발생할 수 있
+- 본 논문에서는 LSTM을 이용하여 
 
