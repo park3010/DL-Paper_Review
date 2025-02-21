@@ -101,22 +101,22 @@
 
 - 모델 구조 <br>
 
-![image](https://github.com/user-attachments/assets/51b43f37-1150-4b24-ab87-da3aab021a40)
-```
-- w_t는 t번째 등장하는 단어
-- t는 예측할 단어가 등장하는 위치, n은 입력되는 단어 개수
-
- [Input layer]
-- t-(n-1) 부터 t-1번째 단어 벡터 위치를 나타내는 one-hot vector오 matrix C를 내적으로 곱하여 해당 단어의 vetor 값 x_k을 구함
-- 구한 x_k를 연결하여 x로 나타냄
-
-[hidden layer]
-- tanh 함수를 이용하여 아래의 공식을 통해 score vetor 값을 구함
-- y = b + Wx + U*tanh(d+Hx) (b, W, U, d, H는 parameter)
-
-[output layer]
-- y 값에 softmax 함수를 적용시켜 정답 one-hot vector와 비교한 뒤 back-propagation를 통해 학습함
-```
+  ![image](https://github.com/user-attachments/assets/51b43f37-1150-4b24-ab87-da3aab021a40)
+  ```
+  - w_t는 t번째 등장하는 단어
+  - t는 예측할 단어가 등장하는 위치, n은 입력되는 단어 개수
+  
+   [Input layer]
+  - t-(n-1) 부터 t-1번째 단어 벡터 위치를 나타내는 one-hot vector오 matrix C를 내적으로 곱하여 해당 단어의 vetor 값 x_k을 구함
+  - 구한 x_k를 연결하여 x로 나타냄
+  
+  [hidden layer]
+  - tanh 함수를 이용하여 아래의 공식을 통해 score vetor 값을 구함
+  - y = b + Wx + U*tanh(d+Hx) (b, W, U, d, H는 parameter)
+  
+  [output layer]
+  - y 값에 softmax 함수를 적용시켜 정답 one-hot vector와 비교한 뒤 back-propagation를 통해 학습함
+  ```
 
 
 <br>
