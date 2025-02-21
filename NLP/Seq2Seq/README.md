@@ -95,8 +95,44 @@
 
 <br>
 
-- 
+- 본 논문에서는 WMT’14의 English to French dataset으로 실험을 진행함
+  - source / target language 각각에 고정된(fixed) size vocabulary를 사용함(source-160,000개 / target-80,000개)
+  - vocabulary에 포함되지 않은 모든 단어는 "UNK" 토큰으로 대체됨
 
+<br>
 
+- 가장 가능성 높은 번역을 찾기 위해 단순히 좌->우로 진행하는 빔 서치(beam search) 디코더를 사용
+  ![image](https://github.com/user-attachments/assets/94c6b565-4e87-4901-a296-712f8e1dc5b6)
 
+<br>
 
+- LSTM 자체도 장기 의존성 문제를 해결할 수 있으나 source 문장의 순서를 뒤집었을 경우(LSTM에서 target 문장은 뒤집지 않음) LSTM이 훨씬 더 잘 학습함을 발견함 <br>
+  -> LSTM의 test perplexity는 5.8에서 4.7로 감소, 디코딩된 번역의 text BLEU 점수는 25.9에서 30.6으로 증가함
+  ```
+  - 순서대로 source 문장과 target 문장을 연결할 경우 연결되는 단어쌍 사이의 거리는 모두 동일함
+  - but 순서를 뒤집을 경우 문장의 앞에 위치한 단어일수록 target 문장의 단어 간 거리가 짧아지게 되나 source 문장의 뒤에 위치한 단어들에 대해선 순서을 뒤집었을 경우 오히려 단어쌍 사이의 거리가 더 멀어짐
+  - 순서를 그대로 유지하거나 뒤집었을때나 결국 단어쌍 사이의 거리 평균값은 동일함
+  => sequencial problem에서 문장에 앞에 위치한 값이 모든 문장의 값에 영향을 주기 때문에 앞 쪽에 위치한 값일수록 중요도가 높다고 보므로 순서를 뒤집을 경우 더 중요도 높은 값에 대해 더 좋은 성능을 보장하는 효과를 보이게 됨
+  ```
+
+<br>
+
+##  Training details
+
+<br>
+
+- 구조: 4개의 layer를 가진 심층 LSTM
+  - 각 layer 별 1000개의 cell
+  - 1000 차원의 word embedding
+  - 입력 vocab size : 160,000
+  - 출력 vocab size : 80,000
+
+- learning
+  - SGD
+  - learning rate = 0.7 -> 5 epoch 이후 learning rate를 0.5배씩 적용
+  - batch size = 128
+  - exploding gradient 문제 발생하므로 강한 제약을 준 gradient 사용
+ 
+<br>
+
+![image](https://github.com/user-attachments/assets/ead8ede4-6956-45eb-ba6b-f96f5108029e)
