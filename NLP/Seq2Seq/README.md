@@ -46,7 +46,7 @@
 
 <br>
 
-- 기존 LSTM
+#### 기존 LSTM
 
   ![image](https://github.com/user-attachments/assets/eb53538b-3fdf-4480-a979-2baa32f3f9fa)
   ```
@@ -63,7 +63,7 @@
   - 각 문장은 End-of-Sentence symbol "<EOS>"로 끝냄
   ```
 
-- 본 논문의 LSTM 차이점
+#### 본 논문의 LSTM 차이점
   - 입력 시퀀스를 위한 LSTM, 출력 시퀀스를 위한 LSTM 두 개를 사용하여 모델의 parameter 수는 증가했지만 연산 비용은 거의 증가하지 않음
   - 4개의 layer로 구성된 심층 LSTM 사용
   - 입력 문장의 단어 순서를 뒤집음  <br>
