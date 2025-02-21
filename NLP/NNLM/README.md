@@ -71,5 +71,12 @@
 
 ### Relation to Previous Work 
 
+- 신경망을 사용하여 고차원의 이산 분포를 모델링하는 아이디어는 이미 입증된 바 있음
 
+- 본 논문에서는 개별 단어를 학습하는 것이 아닌 단어 시퀀스의 확률 분포를 학습하는데 집중하며, 단어 간의 유사성을 표현하기 위해 continuous real-valued vectors를 사용함
 
+<br>
+
+## The Proposed Model: two Architectures 
+
+<br>
