@@ -47,18 +47,29 @@
     ![image](https://github.com/user-attachments/assets/d774ecb6-c087-40b7-8f6c-3f6aa7246215)
   
 - but 이러한 방법은 training corpus에서 자주 등장하는 단어 조합만 고려하며 등장하지 않는 새로운 n개의 단어 조합에 대해선?
-  - 더 짧은 context을 사용하여 일반화(generalization)함 -> 긴 단어 시퀀스에 대해서는 부분 시퀀스를 이어붙이는 방식 사용
+- 더 짧은 context을 사용하여 일반화(generalization)함 -> 긴 단어 시퀀스에 대해서는 부분 시퀀스를 이어붙이는 방식 사용
   ```
   두 가지 문제 존재
   1) 1 ~ 2개의 단어만 고려, 더 먼 context 고려 안함
   2) 단어 간 유사성 고려 안 함
   ```
 
+
 <br>
 
 ### Fighting the Curse of Dimensionality with its Own Weapons
 
-- 
+- 해당 파트를 요약하자면 각 단어를 feature vector($ℝ^m$)로 변환하고 joint probability function로 표현하여 단어들의 feature vector와 probability function의 parameter를 동시에 학습함
+
+<br>
+
+- feature vector는 각 단어를 vector 공간 상의 한 점으로 표현할 수 있게 하며 표현된 feature는 어휘(Vocabulary)보다 크기가 훨씬 작음
+- 유사한 단어들 간엔 유사한 feature vector를 가지며 probability function는 이러한 feature vector에 대해 smooth한 functoin이기 때문에 feature의 작은 변화는 probability에도 작은 변화를 가져옴 <br>
+  -> 하나의 문장에 대해 그 문장만의 probability만 증가하는게 아니라 feature vector 공간 상의 가까운 유사한 문장들의 probability도 함께 증가하게 됨
+
+<br>
+
+### Relation to Previous Work 
 
 
 
