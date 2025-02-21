@@ -42,6 +42,29 @@
 - RNN은 기본적으로 순차 데이터를 다룰 수 있도록 전방향 신경망을 일반화한 것으로 sequencial problem에 매우 적합한 model임 <br>
   ![image](https://github.com/user-attachments/assets/a099cc85-4ddd-4c10-a847-4f86dc8f8b55)
 - but 입력 시퀀스와 출력 시퀀스의 길이가 다를 경우 좋은 성능일 보이기 어려움, 또한 RNN은 장기 의존성(long-term dependencies)이 발생할 수 있음
+- 본 논문에서는 LSTM을 이용하여 장기 의존성을 해결하고자 함
 
-- 본 논문에서는 LSTM을 이용하여 
+<br>
 
+- 기존 LSTM
+
+  ![image](https://github.com/user-attachments/assets/eb53538b-3fdf-4480-a979-2baa32f3f9fa)
+  ```
+   LSTM의 목표는 조건부 확률 $p(y_1, ..., y_{T^'}|x_1, ..., x_T)$ 를 추정하는 것
+
+  - $(x_1, ..., x_T)$ 는 입력 시퀀스, $(y_1, ..., y_{T^'})$ 출력 시퀀스
+  - 출력 시퀀스 길이 $T^'$와 입력 시퀀스 길이 $T$ 는 다를 수 있음
+
+  - LSTM은 입력 시퀀스 $(x_1, ..., x_T)$의 마지막 hiddent state로부터 고정된 차원의 표현 $v$를 얻음
+  - LSTM-LM을 사용하여 $v$로부터 $y_1, ..., y_{T^'}$의 확률을 계산함
+
+  - 어휘(Vocabulary) 내 모든 단어에 대한 softmax를 표현하여 $p(y_t|v, y_1, ..., y_{t-1})$ 분포를 구함
+
+  - 각 문장은 End-of-Sentence symbol "<EOS>"로 끝냄
+  ```
+
+- 본 논문의 LSTM 차이점
+  - 입력 시퀀스를 위한 LSTM, 출력 시퀀스를 위한 LSTM 두 개를 사용하여 모델의 parameter 수는 증가했지만 연산 비용은 거의 증가하지 않음
+  - 4개의 layer로 구성된 심층 LSTM 사용
+  - 입력 문장의 단어 순서를 뒤집음  <br>
+    -> 원본 문장이 "a, b, c"라면 기존에는 "α, β, γ"로 매핑했으나 본 논문에서는 "c, b, a"를 "α, β, γ"로 매핑하여 SGD를 통해 입출력 간의 연결을 쉽게 설정할 수 있도록 함
