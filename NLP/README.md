@@ -19,3 +19,12 @@
 |Learning Phrase Representations using RNN Encoder–Decoderfor Statistical Machine Translation (Seq2Seq)|[EMNLP](https://arxiv.org/pdf/1406.1078)|2014|`Not Yet`|
 |NEURAL MACHINE TRANSLATIONBY JOINTLY LEARNING TO ALIGN AND TRANSLATE (Seq2Seq with Attention)|[ICLR](https://arxiv.org/pdf/1409.0473)|2015|`Not Yet`|
 
+<br>
+
+## LLM
+
+<br>
+
+|Title|Journal/Conference|Year|Progress|
+|:---|:---:|:---:|:---:|
+|Attention is all you need (Transformer)|[NIPS](https://proceedings.neurips.cc/paper_files/paper/2017/file/3f5ee243547dee91fbd053c1c4a845aa-Paper.pdf)|2017|`Not Yet`|
