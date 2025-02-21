@@ -80,3 +80,14 @@
 ## The Proposed Model: two Architectures 
 
 <br>
+
+- 본 논문에서 목표는 높은 범용성을 제공하는 $f(w_t, ..., w_{t-n}) = \hat{P}(w_t|w{t-1}_1)$을 만족하는 모델 $f$를 만드는 것
+- 
+![image](https://github.com/user-attachments/assets/51b43f37-1150-4b24-ab87-da3aab021a40)
+```
+
+```
+
+
+
+
