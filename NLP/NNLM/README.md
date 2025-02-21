@@ -81,21 +81,43 @@
 
 <br>
 
-- 본 논문에서 목표는 주어진 문맥(이전 단어들)이 주어졌을때 다음 단어 확률을 추정하는 $f(w_t, ..., w_{t-n}) = \hat{P}(w_t|w^{t-1}_1)$, 모델 $f$를 만드는 것
+- 본 논문에서 목표는 주어진 문맥(이전 단어들)이 주어졌을때 다음 단어 확률 $\hat{P}(w_t|w^{t-1}_1)$을 구하는 것
+- 문장을 구성하는 단어 시퀀스의 joint probability를 학습하는 것
+- 이를 위한 모델 $f$는 다음과 같음 -> $f(w_t, ..., w_{t-n}) = \hat{P}(w_t|w^{t-1}_1)$
 - 모델 $f$의 조건 : 어휘의 단어에 대한 $f$ 값의 합은 1이어야 함, $∑^{|V|}_{i=1} f(i, w_t-1, ..., w_{t-n+1}) = 1$
 
 <br>
 
----
+- 모델 구성
+  - word embedding mapping C:
+    - 각 단어 w를 $R^m$ 차원의 실수 벡터로 변환하며 모든 단어는 embedding matrix C의 행을 저장됨 (이때 크기는 $|V| × m$)
+    - 단어의 의미적/문법적 유사성을 반영하여 모델이 새로운 단어 조합을 보다 잘 일반화할 수 있도록 함
+  - probability function g(or h):
+    - C를 통해 변환한 embedding vector 기반 주어진 문맥에서 다음 단어가 나타날 확률 예측하는 함수
+    - Direct Architecture:
+      - function g : 이전 n개의 단어 embedding vector를 입력받아 단어 분포를 출력함
+      - function h : 문맥에 있는 word vector와 각 후보 word의 vector도 함께 이입력하여 점수 계산함
+
+<br>
 
 ![image](https://github.com/user-attachments/assets/51b43f37-1150-4b24-ab87-da3aab021a40)
+```
+모델 구조
+- w_t는 t번째 등장하는 단어
+- t는 예측할 단어가 등장하는 위치, n은 입력되는 단어 개수
 
-- 모델의 기본 구조
+ [Input layer]
+- t-(n-1) 부터 t-1번째 단어 벡터 위치를 나타내는 one-hot vector오 matrix C를 내적으로 곱하여 해당 단어의 vetor 값 x_k을 구함
+- 구한 x_k를 연결하여 x로 나타냄
 
-[Input layer]
-- 
+[hidden layer]
+- tanh 함수를 이용하여 아래의 공식을 통해 score vetor 값을 구함
+- y = b + Wx + U*tanh(d+Hx) (b, W, U, d, H는 parameter)
 
----
+[output layer]
+- y 값에 softmax 함수를 적용시켜 정답 one-hot vector와 비교한 뒤 back-propagation를 통해 학습함
+```
+
 
 <br>
 
