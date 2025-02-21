@@ -28,7 +28,7 @@
 
 <br>
 
-#### 차원의 저주
+### 차원의 저주
 
 - 이산 확률 변수간의 결합 분포 모델링 시 '차원의 저주'로 인한 학습 문제 어려움이 발생함
   - 단어 수가 100,000개인 자연어에서 10개의 연속된 단어의 결합 분포 모델링 시 가능한 free parameters는 $100,000^10 - 1 = 10^50 - 1$ 개
@@ -44,18 +44,21 @@
 - 기존의 통계적 모델은 문장에서 가까운 단어들 간의 통계적 의존성을 가진다고 고려하여 문제의 난이도를 줄이며 대표적인 방법이 **N-gram 모델** 임
   -  방대한 수의 문맥(context) 각각에 대해 다음 단어가 등장할 확률을 나타내는 표를 생성한 뒤 마지막 $n−1$ 개의 단어 조합을 활용하여 다음 단어의 확률을 근사하는 것
   
-  ![image](https://github.com/user-attachments/assets/d774ecb6-c087-40b7-8f6c-3f6aa7246215)
+    ![image](https://github.com/user-attachments/assets/d774ecb6-c087-40b7-8f6c-3f6aa7246215)
   
 - but 이러한 방법은 training corpus에서 자주 등장하는 단어 조합만 고려하며 등장하지 않는 새로운 n개의 단어 조합에 대해선?
-  - 더 잛은 context을 사용하여 일반화(generalization)함 -> 긴 단어 시퀀스에 대해서는 부분 시퀀스를 이어붙이는 방식 사용
+  - 더 짧은 context을 사용하여 일반화(generalization)함 -> 긴 단어 시퀀스에 대해서는 부분 시퀀스를 이어붙이는 방식 사용
   ```
   두 가지 문제 존재
   1) 1 ~ 2개의 단어만 고려, 더 먼 context 고려 안함
   2) 단어 간 유사성 고려 안 함
   ```
 
+<br>
 
+### Fighting the Curse of Dimensionality with its Own Weapons
 
+- 
 
 
 
