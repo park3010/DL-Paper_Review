@@ -94,9 +94,8 @@
     - 단어의 의미적/문법적 유사성을 반영하여 모델이 새로운 단어 조합을 보다 잘 일반화할 수 있도록 함
   - probability function g(or h):
     - C를 통해 변환한 embedding vector 기반 주어진 문맥에서 다음 단어가 나타날 확률 예측하는 함수
-    - Direct Architecture:
-      - function g : 이전 n개의 단어 embedding vector를 입력받아 단어 분포를 출력함
-      - function h : 문맥에 있는 word vector와 각 후보 word의 vector도 함께 이입력하여 점수 계산함
+    - Direct Architecture: $function g$을 통해 이전 n개의 단어 embedding vector를 입력받아 단어 분포를 출력함
+    - Cycling Architecture: $function h$을 통해 문맥에 있는 word vector와 각 후보 word의 vector도 함께 이입력하여 점수 계산함
 
 <br>
 
@@ -120,4 +119,15 @@
 
 
 <br>
+
+## Speeding-up and other Tricks
+
+<br>
+
+- Short list: 다음 단어의 확률을 예측하는데 연산량이 선형적으로 증가하므로 확률이 가장 높은 단어들의 short list를 만들어서 해당 리스트 내에서 상대적인 확률만 계산함
+- Table look-up for recognition : 자주 등장하는 입력 문맥에 대해서는 미리 hash table에 저장하여 즉시 참조 가능하도록 함
+- SGD
+
+
+
 
