@@ -76,16 +76,17 @@
 
 ```
  [Input layer]
-- 1-of-V 인코딩(여기서 V는 vocabulary의 크기)를 사용하여 이전 N개의 단어를 인코딩함
+- 1-of-V 인코딩을 사용하여 이전 N개의 단어를 인코딩함
 -> 1-of-V 인코딩 : 해당 단어만 1이고 나머지는 0인 벡터로 변환
 
- [Projection layer, P]
+ [Projection layer]
+- hidden layer는 활성화함수로 비선형성을 띄나 Projection layer는 가중치와 행렬의 연산만 이루어지고 활성화 함수는 존재하지 않음
 - 공유된 투영 행렬(shared projection matrix)을 사용하여 input layer를 N × D 차원으로 P에 투영함
 - 한 번에 N개의 입력만 활성화하므로 계산 비용은 비교적 낮음
 
  [Hidden layer & Output layer]
-- P의 값은 밀집 벡터이므로 은닉층 계산은 복잡해짐
-- 일반적으로 N = 10 으로 설정, P의 크기는 500 ~ 2000 차원, hidden layer H의 크기는 500 ~ 1000 차원 정도로 설정함
+- Projection layer의 값은 밀집 벡터이므로 은닉층 계산은 복잡해짐
+- 일반적으로 N = 10 으로 설정, Projection layer의 크기는 500 ~ 2000 차원, hidden layer의 크기는 500 ~ 1000 차원 정도로 설정함
 - output layer는 vocabulary 내 모든 단어에 대한 확률 분포를 계산해야 하므로 ouput layer의 차원은 V가 됨
 
 
@@ -93,8 +94,38 @@
 
 Q = N × D + N × D × H + H × V
 
+N = N개의 단어
+D = input layer
+H = hidden layer
+V = vocabulary 크기
+
 - 계산 비용이 가장 큰 term은 H × V, 계산 비용을 줄이기 위해 vocabulary를 Huffman tree로 표현한 hierarchical softmax 사용
+   -> 비용을 log_2(V)로 줄임
 ```
+
+
+<br>
+
+####  Recurrent Neural Net Language Model (RNNLM)
+
+![image](https://github.com/user-attachments/assets/55b42a90-22e1-4f94-8e60-894b1ea926c9)
+
+- RNNLM은 context 길이를 사전에 정의해야 하는 NNLM의 한계를 개선함
+- RNNLM의 구조는 input, hidden, output layer로 구성되며 projection layer가 없다는 특징이 존재함
+- hidden layer에서 자기 자신과 연결하는 시간 지연 연결(time-delayed connections)을 적용해 short-term memory를 갖게 하여 이전 정보를 현재 state에 반영할 수 있도록 함
+
+```
+- RNN의 training complexity :
+
+Q = H × H + H × V
+
+- H × H = hidden layer 내부의 순환 연결 연산
+- H × V = output layer에서 V에 대한 확률 계산 연산
+
+-> H × V term에 hierarchical softmax를 적용 시 계산 비용을 H × log_2(V)로 줄일 수 있으므로 주요 계산 비용은 H × H에서 나옴
+```
+
+
 
 <br>
 
@@ -102,5 +133,41 @@ Q = N × D + N × D × H + H × V
 
 <br>
 
-####  Recurrent Neural Net Language Model (RNNLM)
+## New Log-linear Models
 
+<br>
+
+- 이번 섹션에서 computational complexity를 최소화하는 두 가지 모델 아키텍처를 소개함
+- 위 모델 설명을 통해 대부분의 complexity는 hidden layer에서 발생한다는 것을 확인함, 본 연구에선 simple model을 통해 신경망보다 hidden layer의 표현력이 떨어지지만 더 많은 데이터를 효율적으로 학습할 수 있는 방법을 연구함
+
+<br>
+
+####  Continuous Bag-of-Words Model (CBOW)
+
+![image](https://github.com/user-attachments/assets/ffe7642b-f038-40ec-a095-435a48c3e0d2)
+
+- NNLM과 유사하나 hidden layer는 제거하고 projection layer에서 모든 단어들과 공유함
+- 즉, 모든 단어가 동일한 위치로 투영(projection)되어 벡터가 평균화됨
+- 이러한 구조는 단어의 순서는 투영 과정에서 영향을 미치지 않기 때문에 Bag-of-Words라고 함(이전에 projection된 단어는 영향을 주지 않음)
+
+- log-linear classifier에 4개의 미래 단어와 4개의 과거 단어를 입력하여 주어진 중심 단어를 분류하는 작업에서 가장 좋은 성능을 보임
+
+- CBOW의 training complexity :
+```
+Q = N × D + D × log2(V ).
+```
+
+<br>
+
+- 기존 Bag-of-Words 모델과 다른 점은 문맥을 continuous distributed representation으로 사용함
+- input layer에서 projection layer로 projection할 때 모든 단어에 동일한 weight matrix를 사용함
+
+
+<br>
+
+####  Continuous Skip-gram Model (CBOW)
+
+![image](https://github.com/user-attachments/assets/f4808a64-532f-4acc-ac5a-92e4ff38dba2)
+
+- CBOW이 문맥 중심으로 과거 단어 n개와 미래 단어 n개를 통해 중심 단어를 예측하는 방식이라면 skip-gram은 입력한 단어를 바탕으로 입력한 단어의 주변 범위의 단어들을 예측하는 방식임
+- 
