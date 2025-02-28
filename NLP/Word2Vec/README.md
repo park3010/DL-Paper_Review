@@ -67,4 +67,34 @@
 
 ####  Feedforward Neural Net Language Model (NNLM)
 
-- ㅇㄹ
+![image](https://github.com/user-attachments/assets/db5acdcc-8f55-40b3-954f-7fea6abc6cd0)
+
+<br>
+
+- probabilistic feedforward neural network language model
+  - 구성 : input, projection, hidden and output layers
+
+```
+ [Input layer]
+- 1-of-V 인코딩(여기서 V는 vocabulary의 크기)를 사용하여 이전 N개의 단어를 인코딩함
+
+ [Projection layer, P]
+- 공유된 투영 행렬(shared projection matrix)을 사용하여 input layer를 N × D 차원으로 P에 투영함
+- 한 번에 N개의 입력만 활성화하므로 계산 비용은 비교적 낮음
+
+ [Hidden layer & Output layer]
+- P의 값은 밀집 벡터이므로 은닉층 계산은 복잡해짐
+```
+- 일반적으로 N = 10 으로 설정, P의 크기는 500 ~ 2000 차원, hidden layer H의 크기는 500 ~ 1000 차원 정도로 설정함
+- output layer는 vocabulary 내 모든 단어에 대한 확률 분포를 계산해야 하므로 ouput layer의 차원은 V가 됨
+
+```
+- NNLM의 training complexity, Q :
+
+Q = N × D + N × D × H + H × V
+
+- 계산 비용이 가장 큰 term은 H × V
+
+```
+
+
