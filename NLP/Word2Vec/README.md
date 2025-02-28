@@ -140,6 +140,11 @@ Q = H × H + H × V
 - 이번 섹션에서 computational complexity를 최소화하는 두 가지 모델 아키텍처를 소개함
 - 위 모델 설명을 통해 대부분의 complexity는 hidden layer에서 발생한다는 것을 확인함, 본 연구에선 simple model을 통해 신경망보다 hidden layer의 표현력이 떨어지지만 더 많은 데이터를 효율적으로 학습할 수 있는 방법을 연구함
 
+
+<br>
+
+---
+
 <br>
 
 ####  Continuous Bag-of-Words Model (CBOW)
@@ -152,9 +157,11 @@ Q = H × H + H × V
 
 - log-linear classifier에 4개의 미래 단어와 4개의 과거 단어를 입력하여 주어진 중심 단어를 분류하는 작업에서 가장 좋은 성능을 보임
 
-- CBOW의 training complexity :
 ```
-Q = N × D + D × log2(V ).
+- CBOW의 training complexity :
+
+Q = N × D + D × log_2(V)
+
 ```
 
 <br>
@@ -169,5 +176,40 @@ Q = N × D + D × log2(V ).
 
 ![image](https://github.com/user-attachments/assets/f4808a64-532f-4acc-ac5a-92e4ff38dba2)
 
-- CBOW이 문맥 중심으로 과거 단어 n개와 미래 단어 n개를 통해 중심 단어를 예측하는 방식이라면 skip-gram은 입력한 단어를 바탕으로 입력한 단어의 주변 범위의 단어들을 예측하는 방식임
-- 
+- CBOW이 문맥 중심으로 과거 단어 n개와 미래 단어 n개를 통해 중심 단어를 예측하는 방식이라면 Skip-gram은 입력한 단어를 바탕으로 입력한 단어의 주변 범위의 단어들을 예측하는 방식임
+- Skip-gram은 예측 범위를 늘리면 벡터의 품질은 증가하나 computational complexity는 증가함
+  - 현재 단어와 멀리 떨어진 단어일수록 연관성이 낮으므로 멀리 위치한 단어를 샘플링할 확률을 낮춰 학습 예제에서 멀리 위치한 단어들의 비중을 낮춤
+
+```
+- Skip-gram의 training complexity :
+
+Q = C × (D + D × log_2(V))
+
+- C = 단어 간 최대 거리
+```
+
+<br>
+
+---
+
+<br>
+
+## Result
+
+<br>
+
+- 기존 연구는 단어 벡터 간 비교를 위해 유사한 단어 쌍끼리 테이블로 나열한 표를 사용함
+- 이전 연구에서는 단어들 간 다양한 유사성이 존재함을 발견함
+  ```
+  - "big" → "bigger"는 "small" → "smaller" 와 동일한 관계를 가짐
+  - "big" → "biggest"는 "small" → "smallest" 와 같은 관계도 가짐
+  ```
+
+- 이러한 관계는 단순한 벡터 연산을 통해서 해결 가능
+  ```
+  X = vector("biggest")−vector("big")+vector("small")
+  ```
+  <br>
+  -> 그리고 벡터 공간 상에서 X와 코사인 유사도가 가장 큰 단어를 찾아서 정답으로 찾음
+
+
