@@ -11,7 +11,7 @@
 |Title|Journal/Conference|Year|Progress|
 |:---|:---:|:---:|:---:|
 |[A Neural Probabilistic Language Model (NNLM)](NNLM)|[JLMR](https://papers.nips.cc/paper_files/paper/2000/file/728f206c2a01bf572b5940d7d9a8fa4c-Paper.pdf)|2003|`Clear`|
-|Efficient Estimation of Word Representations in Vectore Space (Word2Vec)|[ICLR](https://arxiv.org/pdf/1301.3781)|2013|`Not Yet`|
+|Efficient Estimation of Word Representations in Vector Space (Word2Vec)|[ICLR](https://arxiv.org/pdf/1301.3781)|2013|`Not Yet`|
 |Enriching Word Vectors with Subword Information (FastText)|[ACL](https://arxiv.org/pdf/1607.01759)|2017|`Not Yet`|
 |Convolutional Neural Networks for Sentence Classification (TextCNN)|[EMNLP](https://aclanthology.org/D14-1181.pdf)|2014|`Not Yet`|
 |Finding Structure in Time (TextRNN)|[CogSCI](https://onlinelibrary.wiley.com/doi/epdf/10.1207/s15516709cog1402_1)|1990|`Not Yet`|
