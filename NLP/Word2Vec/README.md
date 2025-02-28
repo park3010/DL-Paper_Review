@@ -27,7 +27,7 @@
 - i.e. 단어 간 유사성은 syntactic 규칙성을 넘어서 단어 벡터에 대한 대수적 연산(+, -, ...)을 통해서도 의미적 의미를 반영할 수 있음
    - $vector("King") - vector("Man") + vector("Woman") ≈ vector("Queen")$
 
-=> 위와 깉이 벡터 연산 정확도 향상을 위한 단어 간 선형적 관계(linear regularities among words)를 보존하는 새로운 모델 아키텍처를 개발함
+=> 위와 같이 벡터 연산 정확도 향상을 위한 단어 간 선형적 관계(linear regularities among words)를 보존하는 새로운 모델 아키텍처를 개발함
 ```
 
 <br>
@@ -67,4 +67,4 @@
 
 ####  Feedforward Neural Net Language Model (NNLM)
 
-- dfsa
+- ㅇㄹ
