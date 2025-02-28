@@ -209,7 +209,6 @@ Q = C × (D + D × log_2(V))
   ```
   X = vector("biggest")−vector("big")+vector("small")
   ```
-  <br>
   -> 그리고 벡터 공간 상에서 X와 코사인 유사도가 가장 큰 단어를 찾아서 정답으로 찾음
 
 
