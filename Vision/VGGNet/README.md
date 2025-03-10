@@ -73,8 +73,8 @@
     - 입출력 크기가 C개인 7x7 layer :
       7 x 7 x C^2 = 49C^2
     ```
-    <img src="https://github.com/user-attachments/assets/8bd86e80-3271-4172-a864-d0034f5d4e5c" width="500" height="500"/>
-    <img src="https://github.com/user-attachments/assets/a6a705cd-1cbc-42e3-97e7-151c785ae882" width="500" height="500"/>
+  <img src="https://github.com/user-attachments/assets/8bd86e80-3271-4172-a864-d0034f5d4e5c" width="500" height="500"/>
+  <img src="https://github.com/user-attachments/assets/a6a705cd-1cbc-42e3-97e7-151c785ae882" width="500" height="500"/>
 
 
 - 본 논문에선 또한 1x1 conv layer 적용함
