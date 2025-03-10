@@ -97,3 +97,9 @@
   - Regularization : weight decay(L2 Norm with $5 × 10^{-4}$)
   - Dropout : 1,2번째 FC layer에서 0.5로 설정
   - Learning rate : 초기 0.01로 설정 validation accuracy가 개선되지 않을때마다 10배씩 감소 -> 최종적으로 3번 감소하여 0.00001로 끝남(74 epoch 후 학습 종료함)
+
+- AlexNet보다 깊이가 더 깊고 parameter 수가 많음에도 더 적은 epoch 수로 수렴한 이유
+  - network가 더 깊어지고 conv filter가 작어짐에 따라 발생하는 implicit regularization 효과
+  - 특정 layer에 대한 pre-initialization 수행
+ 
+- 
