@@ -27,6 +27,40 @@
 
 <br>
 
-- Input size : 224 x 224 size의 RGB image(3 channel)
+- Input size : 224 x 224 size의 RGB image(3 channel) -> input image는 3x3 크기의 filter 사용
 - preprocessing : 각 pixel에 대해 training set에서 계산된 RGB 평균을 뺌
+- Convolution 연산 : stride = 1 고
+- MaxPooling : stride = 2, 2x2 pixel 사이즌에서 window 수행됨
+- Convolution layer 이후엔 3개의 Fully Connected layer가 위치함
+  - 1,2 FC layer : 4096 channel
+  - 3 FC layer : 1000 channel
+  - last layer : softmax layer
+- ReLU 함수 사용
+
+<br>
+
+### CONFIGURATIONS
+
+![image](https://github.com/user-attachments/assets/7b330852-e1ea-4c0c-80d9-5b2e3e6cdd0a)
+
+<br>
+
+- network A는 11개의 weight layer(conv 8개, fc 3개), network E는 19개의 weight layer(conv 16개, fc 3개) 로 **깊이** 만 다르게 구성함
+- 첫 번째 layer에서 channel 수는 64개 -> MaxPooling layer 이후에는 512개의 channel로 증가함
+
+<br>
+
+![image](https://github.com/user-attachments/assets/53e0d720-c36d-4148-8178-065e61e94880)
+
+<br>
+
+- network A ~ E 까지의 parameter 개수 정리
+- network의 깊이가 깊어짐에도 해당 network보단 깊이는 얕지만 더 넓은 Conv layer와 filter를 가진 다른 network보단 parameter 수가 적음
+
+
+<br>
+
+### DISCUSSION
+
 - 
+
