@@ -18,7 +18,6 @@
 
 - 해당 섹션에선 ConvNet의 generic layout의 구성을 설명하고 모델 평가를 위해 사용된 구성을 설명함
 
-
 <br>
 
 ### ARCHITECTURE
@@ -77,3 +76,22 @@
 
 - 본 논문에선 또한 1x1 conv layer 적용함
 - 1x1 conv layer를 통해 receptive field(특정 convolution 뉴런이 보고 있는 입력 이미지 일) size를 건들지 않고 비선형성을 증가시킴
+
+<br>
+
+##  CLASSIFICATION FRAMEWORK
+
+<br>
+
+- 해당 섹션에서는 classification ConvNet에 대한 training과 evaluation 을 설명함
+
+<br>
+
+### TRAINING
+
+- ConvNet 훈련 절차는 기본적으로 AlexNet을 따름(multi-scale train image에서 input crop 샘플링 제외)
+  - Optimization : multinomial Logistic Regression
+  - mini-batch gradient descent with momentum
+  - batch size : 256
+  - momentum size : 0.9
+  - Regularization : weight decay(L2 Norm with $5*10^{-4}$)
