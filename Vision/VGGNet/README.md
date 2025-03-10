@@ -94,4 +94,6 @@
   - mini-batch gradient descent with momentum
   - batch size : 256
   - momentum size : 0.9
-  - Regularization : weight decay(L2 Norm with $5*10^{-4}$)
+  - Regularization : weight decay(L2 Norm with $5 × 10^{-4}$)
+  - Dropout : 1,2번째 FC layer에서 0.5로 설정
+  - Learning rate : 초기 0.01로 설정 validation accuracy가 개선되지 않을때마다 10배씩 감소 -> 최종적으로 3번 감소하여 0.00001로 끝남(74 epoch 후 학습 종료함)
