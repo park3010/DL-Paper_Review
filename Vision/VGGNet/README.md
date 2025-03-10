@@ -62,5 +62,14 @@
 
 ### DISCUSSION
 
-- 본 논문에선 3x3 filter(stride=1) 사용함
-  - because 1) 두 개의 3x3 conv layer 적용 시 5x5 conv layer와 동일하고 세 개의 3x3 conv layer은 7x7 layer와 유사함 -> but 3개의 3x3 conv layer를 적용하는 것이 7x7 conv layer를 한 번 적용하는 것보다 ReLU를 더 많이 통과하여 비선형성을 증가시켜 모델이 더 강력한 분류 능력을 가질 수 있음
+- 본 논문에선 3x3 filter(stride=1) 사용함, 두 개의 3x3 conv layer 적용 시 5x5 conv layer와 동일하고 세 개의 3x3 conv layer은 7x7 layer와 동일함
+- 그럼 왜 7x7 conv layer 한 번 적용하는 대신 3개의 3x3 conv layer를 적용하는가
+  - ReLU를 더 많이 통과하여 비선형성을 증가시켜 모델이 더 강력한 분류 능력을 가질 수 있음
+  - paramter의 개수가 감소하여 overfitting을 줄일 수 있음
+    ```
+    - 입출력 크기가 C개인 3x3 layer :
+      3 x (3 x 3 x C^2) = 27C^2
+
+    - 입출력 크기가 C개인 7x7 layer :
+      7 x 7 x C^2 = 49C^2
+    ```
