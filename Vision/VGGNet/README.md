@@ -62,5 +62,5 @@
 
 ### DISCUSSION
 
-- 
-
+- 본 논문에선 3x3 filter(stride=1) 사용함
+  - because 1) 두 개의 3x3 conv layer 적용 시 5x5 conv layer와 동일하고 세 개의 3x3 conv layer은 7x7 layer와 유사함 -> but 3개의 3x3 conv layer를 적용하는 것이 7x7 conv layer를 한 번 적용하는 것보다 ReLU를 더 많이 통과하여 비선형성을 증가시켜 모델이 더 강력한 분류 능력을 가질 수 있음
