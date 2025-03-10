@@ -112,3 +112,60 @@
 - 본 논문에서는 잘못된 초기화를 막기 위해 아래와 같은 방법 사용
   - Configuration A를 먼저 학습한 뒤 더 깊은 network를 훈련할 때는 초기 4개의 conv layer와 마지막 3개의 fc layer를 network A의 weight로 초기화함, 나머지 중간 layer는 무작위로 초기화함
   - 무작위 초기화의 경우 weight는 평균은 0, 분산은 0.01인 정규분포에서 샘플링했고 bias는 0으로 초기화
+
+<br>
+ 
+- train image size는 224x224로 고정하며 원본 이미지에서 train image size에 맞게 무작위로 crop하여 샘플링함
+- Data augmentation은 3가지 방법 사용
+  - 무작위로 crop 한 이미지에 대해 무작위로 좌우 반전 적용
+  - 무작위로 RGB 색 변환
+  - image rescaling
+    - Single scale : input image size를 고정된 크기로 scale함
+    - Multi scale : 원본 이미지에서 정의한 input image size만큼 무작위로 샘플링함
+
+<br>
+
+### TESTING
+
+- test image size를 다양하게 rescale 하여 입력값을 사용함
+- 이를 위해 1번째 FC layer는 7x7 conv layer를 사용하고 나머지 2개의 FC layer는  1x1 conv layer를 사용함
+
+
+<br>
+
+## CLASSIFICATION EXPERIMENTS
+
+<br>
+
+### SINGLE SCALE EVALUATION
+
+![image](https://github.com/user-attachments/assets/ae10f0c2-5bc7-46f8-a442-93c556840d56)
+
+
+<br>
+
+### MULTI-SCALE EVALUATION
+
+![image](https://github.com/user-attachments/assets/1fbfe8b5-ac6a-4b05-ba7d-57f82151ffaf)
+
+
+<br>
+
+### MULTI-CROP EVALUATION
+
+![image](https://github.com/user-attachments/assets/fdcdfa0b-fe89-44a6-b101-ac5e17f69200)
+
+
+<br>
+
+### CONVNET FUSION
+
+![image](https://github.com/user-attachments/assets/08aebdaa-5cec-4a42-ba93-0b7d105e16c7)
+
+
+<br>
+
+### COMPARISON WITH THE STATE OF THE ART
+
+![image](https://github.com/user-attachments/assets/9e194d81-8f4b-426f-9b27-c7fb5da32f64)
+
