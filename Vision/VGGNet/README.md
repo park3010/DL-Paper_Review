@@ -73,9 +73,12 @@
     - 입출력 크기가 C개인 7x7 layer :
       7 x 7 x C^2 = 49C^2
     ```
+    ![image](https://github.com/user-attachments/assets/8bd86e80-3271-4172-a864-d0034f5d4e5c)
+    ![image](https://github.com/user-attachments/assets/a6a705cd-1cbc-42e3-97e7-151c785ae882)
+
 
 - 본 논문에선 또한 1x1 conv layer 적용함
-- 1x1 conv layer를 통해 receptive field(특정 convolution 뉴런이 보고 있는 입력 이미지 일) size를 건들지 않고 비선형성을 증가시킴
+- 1x1 conv layer를 통해 receptive field(특정 convolution 뉴런이 보고 있는 입력 이미지 일부) size를 건들지 않고 비선형성을 증가시킴
 
 <br>
 
@@ -98,8 +101,14 @@
   - Dropout : 1,2번째 FC layer에서 0.5로 설정
   - Learning rate : 초기 0.01로 설정 validation accuracy가 개선되지 않을때마다 10배씩 감소 -> 최종적으로 3번 감소하여 0.00001로 끝남(74 epoch 후 학습 종료함)
 
+<br>
+
 - AlexNet보다 깊이가 더 깊고 parameter 수가 많음에도 더 적은 epoch 수로 수렴한 이유
   - network가 더 깊어지고 conv filter가 작어짐에 따라 발생하는 implicit regularization 효과
   - 특정 layer에 대한 pre-initialization 수행
+
+<br>
  
-- 
+- 본 논문에서는 잘못된 초기화를 막기 위해 아래와 같은 방법 사용
+  - Configuration A를 먼저 학습한 뒤 더 깊은 network를 훈련할 때는 초기 4개의 conv layer와 마지막 3개의 fc layer를 network A의 weight로 초기화함, 나머지 중간 layer는 무작위로 초기화함
+  - 무작위 초기화의 경우 weight는 평균은 0, 분산은 0.01인 정규분포에서 샘플링했고 bias는 0으로 초기화
