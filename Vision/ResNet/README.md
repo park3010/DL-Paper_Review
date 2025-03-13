@@ -22,7 +22,7 @@
 
 <br>
 
-- 본 논문에서는 Residual Learning Framework를 제안함
+- 본 논문에서는 Residual Learning Framework를 제안함 <br>
   ![image](https://github.com/user-attachments/assets/2d04bc71-c895-41c1-9251-72d032c0347c)
   ```
    [residual train]
