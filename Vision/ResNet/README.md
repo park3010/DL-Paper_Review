@@ -65,7 +65,7 @@
 
 - 앞서 언급한 바와 같이 residual function F(x)는 H(x) - x 로 근사할 수 있으며 이를 통해 H(x) = F(x) + x 로 변환 가능함
 - shortcut connection 또한 추가적인 parameter와 computational complexity를 필요로 하지 않음
-- residual learning 을 layer에 적용하기 위해선 입력 x와 F는 같은 차원을 가지고 있어야 함 -> 만약 차원이 다를 경우 linear projection $W_s$ 적옹하여 차원을 맞출 수 있음
+- residual learning 을 layer에 적용하기 위해선 입력 x와 F는 같은 차원을 가지고 있어야 함 -> 만약 차원이 다를 경우 linear projection $W_s$ 적용하여 차원을 맞출 수 있음
   ```
   y = F(x, {W_i}) + W_s * x
   ```
@@ -77,3 +77,32 @@
 <br>
 
 ![image](https://github.com/user-attachments/assets/67dfd2d8-a4e3-4559-ad25-61dac39bcacc)
+
+<br>
+
+### Plain Network
+
+- plain network는 VGGNet에 영감을 받았으며 아래 두 가지 규칙에 기반하여 설계함
+  ```
+  - output feature map의 size 와 동일한 수의 conv filter를 사용함
+  - output feature map의 size 가 반으로 줄어들면 time complexity를 동일하게 유지하기 위해 filter 수를 두 배로 증가시킴
+  ```
+- 이 plain network의 구조는 34개의 weight layer로 구성되어 있으며 마지막 부분은 global average pooling layer와 1000개의 뉴런을 가진 fully-connected layer + softmax 활성화 함수로 이루어짐
+
+
+<br>
+
+### Residual Network
+
+- residual network는 shortcut connection을 추가한 구조이며 입력과 출력 차원이 동일한 경우 identity shortcut을 적용할 수 있음
+- 입력과 출력이 다를 경우 아래의 두 가지 방법을 적용할 수 있음
+  ```
+  - zero padding 기법을 사용하여 추가된 차원의 수를 일치시킨 뒤 identity shortcut을 적용함
+  - linear projection W_s 를 곱하여 projection shortcut을 사용하여 차원 일치시킴 -> 1x1 convolution 으로 구현
+  ```
+
+<br>
+
+## Implementation
+
+<br>
