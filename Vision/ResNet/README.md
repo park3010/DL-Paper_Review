@@ -123,7 +123,7 @@
   - 최대 반복 횟수 : $60 × 10^4$
 - 테스트
   - 10-crop testing 기법 적용
-  - 이미지의 잛은 변 크기를 {224, 256, 384, 480, 640} 중 하나로 resize한 뒤 평균을 계산함
+  - 이미지의 짧은 변 크기를 {224, 256, 384, 480, 640} 중 하나로 resize한 뒤 평균을 계산함
  
 
 <br>
@@ -141,5 +141,43 @@
 
 ### Plain Networks
 
+- 34-layer의 training error > 18-layer의 training error  -> 성능 저하 문제(degradation problem)가 발생했기 때문
+- 본 실험의 plain network에 Batch Normalization를 적용하여 forward propagation이 0이 되지 않도록 보장했으며, back-propagation 과정에서도 gradient가 소실되진 않음
+- 즉, layer가 깊어질수록 지수적으로 낮은 수렴 속도(exponentially low convergence rate)로 인해 최적화가 어려워졌음을 의미함
+
+<br>
+
+### Residual Networks
+
+- 본 실험에서 모든 shortcuts에 identity mapping 을 적용하고 차원 맞추기 위해 zero-padding 적용함
+- 34-layer에서도 성능 저하 문제(degradation problem) 피할 수 있었으며 빠른 수렴 속도를 가짐 
+
+
+<br>
+
+### Identity vs. Projection Shortcuts
+
+![image](https://github.com/user-attachments/assets/0f2516a8-7ade-4a71-9f5c-0f9c154ec558)
+
+- (A-C) 옵션을 통해 projection shortcut 성능 비교함
+- (A) 차원 증가 시 zero-padding 적용하여 shortcut connection 유지함
+- (B) 차원 증가 시 projection shortcut을 적용하며 나머지 shorcut은 identity shortcut을 적용함
+- (C) 모든 shortcut에 projection shortcut 적용함
+- (A-C) 옵션 간 성능을 비교했을 때 (C) 옵션의 성능이 가장 나았으나 유의미한 차이는 없음
+- (C) 옵션 적용 시 computation complexity를 증가시키므로 이후 실험에선 (B) 옵션을 적용함
+
+<br>
+
+### Deeper Bottleneck Architectures
+
+![image](https://github.com/user-attachments/assets/29878d0a-56eb-4edd-9907-bd0fe94d9b51)
+
+
+- 본 논문에서는 그림 5의 오른쪽처럼 bottleneck 구조로 수정하여 성능을 테스트함
+- 기존 residual function F(x) 구조가 2개의 layer로 구성되어 있다면 bottleneck design은 3개의 layer로 구성됨
+  - 1x1 conv -> 3x3 conv -> 1x1 conv
+  - 1x1 conv layer로 차원 축소 및 증가시키고 3x3 conv layer로 bottleneck 역할 수행함
+ 
+- bottleneck 구조에서 identity shortcut을 적용 시 모델 크기 및 연산량을 2배 증가시켜 더 효율적인 모델 설계를 가능하게 해줌
 
 
