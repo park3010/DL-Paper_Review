@@ -132,4 +132,14 @@
 
 <br>
 
+### ImageNet Classification
+
+![image](https://github.com/user-attachments/assets/6742a090-89fe-435c-a243-ea5ff629271e)
+![image](https://github.com/user-attachments/assets/19ca56c8-eeac-4f3c-81b8-444b19397647)
+
+<br>
+
+### Plain Networks
+
+
 
