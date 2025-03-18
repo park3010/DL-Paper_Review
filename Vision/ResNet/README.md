@@ -106,3 +106,30 @@
 ## Implementation
 
 <br>
+
+- 이미지 크기 조정
+  - 이미지의 짧은 변 크기가 256 ~ 480 픽셀 범위 내에서 Random하게 Sampling 하여 Resize 함
+  - Horizontal flip에서 Random Sample 후 per-pixel mean을 빼줌
+  - Standard color augmentation 기법 적용
+- 신경망 구조
+  - conv layer와 ReLU 함수 사이에 Batch Normalization 적용
+  - He initialization 방법으로 가중치 초기화
+- 학습 과정
+  - Opimizer : SGD
+  - mini-batch size = 256
+  - Learning rate = 초기에는 0.1로 시작함(error가 일정 수준 이상 감소하지 않으면 10배 감소)
+  - weight decay = 0.0001, momentum = 0.9
+  - Dropout 사용 안함
+  - 최대 반복 횟수 : $60 × 10^4$
+- 테스트
+  - 10-crop testing 기법 적용
+  - 이미지의 잛은 변 크기를 {224, 256, 384, 480, 640} 중 하나로 resize한 뒤 평균을 계산함
+ 
+
+<br>
+
+## Experiments
+
+<br>
+
+
