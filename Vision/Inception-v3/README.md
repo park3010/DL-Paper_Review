@@ -97,5 +97,40 @@
 
 <br>
 
-- 
+![image](https://github.com/user-attachments/assets/70179934-6a7d-47fc-98d0-38fdc66d359a)
 
+- GoogLeNet에서 Auxiliary Classifiers을 활용하면 신경망 수렴을 개선하는데 도움을 준다고 소개하나 실제 실험 결과 큰 차이는 없는 걸 알게 됨
+- Auxiliary Classifiers에 batch normalization이나 dropout을 적용했을 때 main classifier의 성능이 향상됨
+- 이를 통해 저수준 feature 학습에 도움을 주는 것이 아닌 정규화 효과를 주는 것으로 추측됨
+
+
+<br>
+
+## Efficient Grid Size Reduction
+
+<br>
+
+- 기존 CNN 신경망은 feature map의 grid 크기를 줄이기 위해 pooling 연산을 하며, 이때 표현 병목(representational bottleneck)을 피하기 위해 max pooling 또는 avg pooling을 적용하기 전 채널 수를 증가시킴 <br>
+
+  ![image](https://github.com/user-attachments/assets/953dbe54-4c94-4cc2-9d7a-ce47bfc26e18)
+
+  ```
+  d x d 크기를 가진 k개의 feature map을 (d/2) x (d/2) 크기를 가진 2k개의 feature map으로 만들고자 할 때
+
+  [오른쪽 그림]
+  1. stride 1의 convolution 적용하여 필터 수를 2k개를 늘린 후
+  2. pooling layer를 지나서 크기를 절반으로 줄임
+  => 연산량을 계산 시 2d^2 k^2 가 됨
+
+  [왼쪽 그림]
+  위 방법의 연산량을 줄이기 위해 convolution과 pooling 순서를 적용한 뒤 그 결과에 convolution을 적용함
+  => 연산량 계산 시 2(d/2)^2 k^2 가 됨
+  이러한 방법은 연산량은 감소시켜 주지만 신경망의 표현력도 감소시킴 
+  ```
+
+<br>
+
+- 본 논문에서는 표현력(representation)을 감소시키지 않고 연산량을 감소시키는 방법으로 두 개의 병렬적인 stride 2 구조의 블록을 사용함
+  - P block : avg pooling 또는 max pooling layer
+  - C block : stride 2를 갖는 convolution layer <br>
+    ![image](https://github.com/user-attachments/assets/a08db096-930f-40ac-b28c-e63dfd5190f1)
