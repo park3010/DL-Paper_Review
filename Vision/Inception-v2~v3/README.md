@@ -133,4 +133,11 @@
 - 본 논문에서는 표현력(representation)을 감소시키지 않고 연산량을 감소시키는 방법으로 두 개의 병렬적인 stride 2 구조의 블록을 사용함
   - P block : avg pooling 또는 max pooling layer
   - C block : stride 2를 갖는 convolution layer <br>
-    ![image](https://github.com/user-attachments/assets/a08db096-930f-40ac-b28c-e63dfd5190f1)
+    <img src="https://github.com/user-attachments/assets/a08db096-930f-40ac-b28c-e63dfd5190f1" width="300" height="300">
+
+
+<br>
+
+## Efficient Grid Size Reduction
+
+<br>
