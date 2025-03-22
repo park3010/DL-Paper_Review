@@ -1,4 +1,4 @@
-![image](https://github.com/user-attachments/assets/3c14c8ad-080a-4585-ab72-1735f0315a12)# Rethinking the Inception Architecture for Computer Vision
+# Rethinking the Inception Architecture for Computer Vision
 
 <br>
 
