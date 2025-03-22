@@ -71,8 +71,7 @@
 <br>
 
 - 5x5 convolution을 두 개의 3x3 convolution으로 분해했을 때 첫 번째 3x3 conv에는 linaer activation, 두 번째 3x3 conv에는 ReLU activation을 사용하는 것보다 둘 다 ReLU activation을 사용하는 것이 더 성능이 높게 나옴 <br>
-![image](https://github.com/user-attachments/assets/a972c0f8-5105-4d5f-909c-d267728aadef)
-
+<img src="https://github.com/user-attachments/assets/a972c0f8-5105-4d5f-909c-d267728aadef" width="350" height="300">
 
 <br>
 
