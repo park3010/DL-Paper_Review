@@ -52,3 +52,18 @@
 
 <br>
 
+- GoogLeNet의 경우 1x1 conv layer로 차원 축소 후 3x3 conv layer 여러 개를 적용하여 local representations은 유지하면서 파라미터 수를 줄일 수 있었음
+
+
+<br>
+
+### Factorization into smaller convolutions
+
+![image](https://github.com/user-attachments/assets/dedddd4c-c8b2-4f0d-857a-7ff8f232e115)
+
+- 5x5 convolution, 7x7 convolution의 경우 3x3 convolution으로 분해하면 같은 input size와 output depth를 유지하면서 더 작은 연산량과 파라미터를 구현할 수 있음
+- 위 그림처럼은 5x5 convolution는 3x3 convolution 두 개(첫 번째는 conv, 두 번째는 fc)로 대체할 수 있음  <br>
+  <img src="https://github.com/user-attachments/assets/6d075166-b889-41e3-ab43-c14721211324" width="300" height="300">
+  <img src="https://github.com/user-attachments/assets/6a2e13b5-07d7-4ce3-a5b8-030138ac4955" width="300" height="300">
+
+
