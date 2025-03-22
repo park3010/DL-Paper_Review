@@ -70,8 +70,8 @@
 
 <br>
 
-- 5x5 convolution을 두 개의 3x3 convolution으로 분해했을 때 첫 번째 3x3 conv에는 linaer activation, 두 번째 3x3 conv에는 ReLU activation을 사용하는 것보다 둘 다 ReLU activation을 사용하는 것이 더 성능이 높게 나옴 <br>
-<img src="https://github.com/user-attachments/assets/a972c0f8-5105-4d5f-909c-d267728aadef" width="350" height="300">
+- 5x5 convolution을 두 개의 3x3 convolution으로 분해했을 때 첫 번째 3x3 conv에는 linaer activation, 두 번째 3x3 conv에는 ReLU activation을 사용하는 것보다 둘 다 ReLU activation을 사용하는 것이 더 성능이 높게 나옴  <br>
+  <img src="https://github.com/user-attachments/assets/a972c0f8-5105-4d5f-909c-d267728aadef" width="350" height="300">
 
 <br>
 
@@ -79,7 +79,7 @@
 
 <br>
 
-![image](https://github.com/user-attachments/assets/610a3df8-57ec-4eb6-a6d1-8b28f2acf01f)
+<img src="https://github.com/user-attachments/assets/610a3df8-57ec-4eb6-a6d1-8b28f2acf01f" width="300" height="350">
 
 - 3x3 convolution을 더 작은 2x2 convolution으로 분해할 수 있는가?
 - 실제 실험했을때 2x2 convolution으로 분해했을 때보다 nx1 비대칭 convolution으로 분해하는게 더 효과적임
@@ -88,7 +88,7 @@
 <br>
 
 - nxn convolution을 nx1과 1xn convolution으로 대체했을 때 faeture map 사이즈가 12~20 사이일 때 효과가 가장 큼 <br>
-  ![image](https://github.com/user-attachments/assets/de261a3c-9714-4b2e-a640-dd4fd612b10d)
+  <img src="https://github.com/user-attachments/assets/de261a3c-9714-4b2e-a640-dd4fd612b10d" width="300" height="350">
 
 
 <br>
