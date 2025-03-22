@@ -153,7 +153,7 @@
 
 - 해당 네트워크는 42 layer로 구성되며 연산량은 GoogLeNet보다 2.5배정도 높으나 VGGNet보다 효과적임 <br>
 
-![image](https://github.com/user-attachments/assets/05fec529-f23f-49eb-9797-eee525d3f1ec)
+   ![image](https://github.com/user-attachments/assets/05fec529-f23f-49eb-9797-eee525d3f1ec)
 
 
 <br>
@@ -172,7 +172,7 @@
 
 <br>
 
-- 저해상도 이미지에 대한 객체 탐지 성능을 실험해보았을때 여전히 좋은 성능을 보
+- 저해상도 이미지에 대한 객체 탐지 성능을 실험해보았을때 여전히 좋은 성능을 보임
 
 
 <br>
