@@ -138,6 +138,56 @@
 
 <br>
 
-## Efficient Grid Size Reduction
+## Inception-v2
 
 <br>
+
+- 본 논문에선 Inception-v2를 소개함
+- 해당 네트워크 구조는 7x7 convolution은 3개의 3x3 convolution으로 분해함
+- 또한 network의 inception 파틍션 figure 5의 inception 구조3개, figure 6의 inception 구조 5개, figure 7의 inception 구조 2개를 사용함
+  <img src="https://github.com/user-attachments/assets/6981f47e-fc1e-43cf-abb7-3175124ebd9e" width="200" height="200">
+  <img src="https://github.com/user-attachments/assets/894edf2e-8869-4a70-9e6a-cb5c3fe37028" width="200" height="200">
+  <img src="https://github.com/user-attachments/assets/4b57b053-3ffe-4800-8046-1d02f200277c" width="200" height="200">
+
+  <br>
+
+- 해당 네트워크는 42 layer로 구성되며 연산량은 GoogLeNet보다 2.5배정도 높으나 VGGNet보다 효과적임 <br>
+
+![image](https://github.com/user-attachments/assets/05fec529-f23f-49eb-9797-eee525d3f1ec)
+
+
+<br>
+
+## Model Regularization via Label Smoothing
+
+<br>
+
+- 본 논문에서는 Label smoothing 기법을 통해 모델 정규화를 진행하여 모델 일반화 성능을 향상시킴
+- 기존 label이 [0, 1, 0, 0]일 때 label smoothing을 적용해 [0.025, 0.925, 0.025, 0.025]로 변환함으로써 정답으로 모든 확률이 몰리는 것을 완화함(=정답 클래스에 대한 확률을 낮추고 나머지 클래스에 조금씩 분배함)
+
+
+<br>
+
+## Performance on Lower Resolution Input
+
+<br>
+
+- 저해상도 이미지에 대한 객체 탐지 성능을 실험해보았을때 여전히 좋은 성능을 보
+
+
+<br>
+
+## Experimental Results and Comparisons
+
+<br>
+
+![image](https://github.com/user-attachments/assets/c48dbc3e-beb1-400a-a509-03b06be9f054)
+
+<br>
+
+- Label Smoothing은 7장에서 설명한 레이블 스무딩 정규화 기법을 적용한 것
+- Factorized 7×7은 첫 번째 7×7 conv layer를 여러 개의 3×3 conv layer로 분해한 구조를 포함한 것
+- BN-auxiliary는 auxiliary classifier의 fc layer에도 Batch Normalization를 적용한 버전
+- 표의 마지막 행은 본 논문에서 제안하는 Inception-v2 + BN-auxiliary인 Inception-v3
+  - Inception-v3는 RMSProp / Label Smoothing / Factorized 7x7 / BN-Auxiliary 로 구성됨
+
