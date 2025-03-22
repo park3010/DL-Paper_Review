@@ -28,13 +28,19 @@
 
 1. 네트워크 초반부에서의 표현 병목(representational bottleneck) 피하기
    - Feed-forwoard network는 input layer -> classifier or regressor 로 이어지는 비순환 그래프로 표현 가능하며 명확한 방향의 정보 흐름으로 정의됨
-   - 보통 표현의 크기(차원의 수)는 input에서 output layer로 갈수록 점진적으로 감소해야 하나 이때 극단적으로 압축된 병목을 피해야 함 <br>
+   - 보통 표현의 크기(차원의 수)는 input에서 output layer로 갈수록 점진적으로 감소해야 하나 이때 극단적으로 압축된 병목을 피해야 함
+
+ <br>
 
 2. Higher dimensional representations은 locally하게 처리하기 쉬움
-   - conv layer에서 tile마다 activation 수를 늘리면 더 분할된(disentangled) feature를 학습할 수 있음 <br>
+   - conv layer에서 tile마다 activation 수를 늘리면 더 분할된(disentangled) feature를 학습할 수 있음
+
+ <br>
 
 3. 공간적 집계(spatial aggregation)는 저차원 임베딩에서도 큰 손실없이 수행 가능
-   - 인접 유닛 간의 강한 상관관계를 통해 차원 축소 시 정보 손실이 적기 때문에 더 넓은 범위의 (e.g 3x3) conv 수행 전 입력 표현의 차원을 줄이더라도 큰 부작용은 없을 것이라 가정함 <br>
+   - 인접 유닛 간의 강한 상관관계를 통해 차원 축소 시 정보 손실이 적기 때문에 더 넓은 범위의 (e.g 3x3) conv 수행 전 입력 표현의 차원을 줄이더라도 큰 부작용은 없을 것이라 가정함
+
+ <br>
 
 4. network width와 depth의 균형 맞추기
    - 각 stage별 filter 수(폭)와 전체 깊이 간의 균형을 통해 최적의 네트워크 성능 달상 가능함
