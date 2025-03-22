@@ -1,4 +1,4 @@
-# Rethinking the Inception Architecture for Computer Vision
+![image](https://github.com/user-attachments/assets/3c14c8ad-080a-4585-ab72-1735f0315a12)# Rethinking the Inception Architecture for Computer Vision
 
 <br>
 
@@ -59,6 +59,8 @@
 
 ### Factorization into smaller convolutions
 
+<br>
+
 ![image](https://github.com/user-attachments/assets/dedddd4c-c8b2-4f0d-857a-7ff8f232e115)
 
 - 5x5 convolution, 7x7 convolution의 경우 3x3 convolution으로 분해하면 같은 input size와 output depth를 유지하면서 더 작은 연산량과 파라미터를 구현할 수 있음
@@ -66,4 +68,35 @@
   <img src="https://github.com/user-attachments/assets/6d075166-b889-41e3-ab43-c14721211324" width="300" height="300">
   <img src="https://github.com/user-attachments/assets/6a2e13b5-07d7-4ce3-a5b8-030138ac4955" width="300" height="300">
 
+<br>
+
+- 5x5 convolution을 두 개의 3x3 convolution으로 분해했을 때 첫 번째 3x3 conv에는 linaer activation, 두 번째 3x3 conv에는 ReLU activation을 사용하는 것보다 둘 다 ReLU activation을 사용하는 것이 더 성능이 높게 나옴 <br>
+![image](https://github.com/user-attachments/assets/a972c0f8-5105-4d5f-909c-d267728aadef)
+
+
+<br>
+
+### Spatial Factorization into Asymmetric Convolutions
+
+<br>
+
+![image](https://github.com/user-attachments/assets/610a3df8-57ec-4eb6-a6d1-8b28f2acf01f)
+
+- 3x3 convolution을 더 작은 2x2 convolution으로 분해할 수 있는가?
+- 실제 실험했을때 2x2 convolution으로 분해했을 때보다 nx1 비대칭 convolution으로 분해하는게 더 효과적임
+- 3x3 convolution의 경우 3x1과 1x3 convolution으로 연속적으로 분해할 수 있으며 이럴 경우 33%의 연산량 절감 효과가 있음, 이는 2x2 conv을 통해 절감한 11%보다 더 큼
+
+<br>
+
+- nxn convolution을 nx1과 1xn convolution으로 대체했을 때 faeture map 사이즈가 12~20 사이일 때 효과가 가장 큼 <br>
+  ![image](https://github.com/user-attachments/assets/de261a3c-9714-4b2e-a640-dd4fd612b10d)
+
+
+<br>
+
+## Utility of Auxiliary Classifiers
+
+<br>
+
+- 
 
